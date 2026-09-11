@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-labelledby="title desc">
+  <title id="title">St. Matthias Parish</title>
+  <desc id="desc">A bold circular St. Matthias Parish emblem with a cross above geometric hills.</desc>
+  <circle cx="200" cy="200" r="190" fill="#1F3044"/>
+  <circle cx="200" cy="200" r="154" fill="#FAF8F5"/>
+  <circle cx="200" cy="200" r="154" fill="none" stroke="#A8533B" stroke-width="16"/>
+  <path d="M200 82v118M164 118h72" stroke="#A8533B" stroke-width="22" stroke-linecap="square"/>
+  <path d="M92 282 166 188l34 44 34-44 74 94H92Z" fill="#5A7360"/>
+  <path d="M108 282h184" stroke="#1F3044" stroke-width="18" stroke-linecap="round"/>
+  <path d="M140 282 200 202l60 80" fill="none" stroke="#1F3044" stroke-width="18" stroke-linejoin="round"/>
+</svg>

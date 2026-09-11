@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-labelledby="t d">
+  <title id="t">St. Matthias Parish</title>
+  <desc id="d">Round badge. A simple line drawing of the St. Matthias church with its tall cross, redwoods on both sides, and a row of people of every color holding hands. Words: St. Matthias Parish. Responding to the Call of Jesus.</desc>
+  <defs>
+    <path id="arc-top" d="M 34 200 A 166 166 0 0 1 366 200" />
+    <path id="arc-bottom" d="M 18 200 A 182 182 0 0 0 382 200" />
+    <clipPath id="disc"><circle cx="200" cy="200" r="148" /></clipPath>
+  </defs>
+
+  <!-- Ring -->
+  <circle cx="200" cy="200" r="198" fill="#1F3044" />
+  <circle cx="200" cy="200" r="150" fill="#FAF8F5" />
+  <circle cx="200" cy="200" r="150" fill="none" stroke="#A8533B" stroke-width="1.25" />
+  <circle cx="200" cy="200" r="191" fill="none" stroke="#FAF8F5" stroke-opacity="0.35" stroke-width="1" />
+
+  <!-- Words -->
+  <text font-family="Newsreader, 'Iowan Old Style', Georgia, serif" font-size="25" font-weight="500" letter-spacing="3.2" fill="#FAF8F5">
+    <textPath href="#arc-top" startOffset="50%" text-anchor="middle">ST. MATTHIAS PARISH</textPath>
+  </text>
+  <text font-family="Newsreader, 'Iowan Old Style', Georgia, serif" font-size="17" font-weight="500" letter-spacing="2.4" fill="#FAF8F5">
+    <textPath href="#arc-bottom" startOffset="50%" text-anchor="middle">RESPONDING TO THE CALL OF JESUS</textPath>
+  </text>
+
+  <g clip-path="url(#disc)">
+    <!-- Sun -->
+    <circle cx="200" cy="168" r="80" fill="#F4ECE9" />
+    <circle cx="200" cy="168" r="80" fill="none" stroke="#A8533B" stroke-opacity="0.55" stroke-width="1.25" />
+
+    <!-- Ground -->
+    <rect x="40" y="292" width="320" height="70" fill="#EDF2EE" />
+    <line x1="40" y1="292" x2="360" y2="292" stroke="#1F3044" stroke-width="2.5" stroke-linecap="round" />
+
+    <!-- Redwoods -->
+    <g fill="#3F5344">
+      <path d="M100 168 L80 214 L120 214 Z M100 190 L72 246 L128 246 Z M100 222 L64 292 L136 292 Z" />
+      <path d="M312 150 L292 200 L332 200 Z M312 176 L284 238 L340 238 Z M312 212 L276 292 L348 292 Z" />
+      <path d="M344 206 L330 238 L358 238 Z M344 226 L326 266 L362 266 Z M344 250 L322 292 L366 292 Z" />
+    </g>
+
+    <!-- Church: A-frame with tall front cross -->
+    <path d="M216 150 L150 292 L282 292 Z" fill="#EDE8DE" stroke="#1F3044" stroke-width="3" stroke-linejoin="round" />
+    <rect x="212" y="186" width="8" height="66" fill="#1F3044" />
+    <path d="M282 292 L282 226 L302 240 L302 292 Z" fill="#EAEFF5" stroke="#1F3044" stroke-width="3" stroke-linejoin="round" />
+    <!-- Bell -->
+    <path d="M148 214 q6 -8 12 0 v6 h-12 z" fill="#A8533B" />
+    <line x1="154" y1="200" x2="154" y2="206" stroke="#1F3044" stroke-width="2" />
+    <!-- Cross -->
+    <rect x="184.5" y="106" width="7" height="186" fill="#A8533B" />
+    <rect x="166" y="140" width="44" height="7" fill="#A8533B" />
+
+    <!-- People holding hands -->
+    <!-- arms -->
+    <g fill="none" stroke-width="3" stroke-linecap="round">
+      <path d="M132 267 Q137.5 279 143 267" stroke="#C4553B" />
+      <path d="M157 267 Q163 283 170 279" stroke="#D98B3A" />
+      <path d="M180 279 Q186 284 193 267" stroke="#C9A63C" />
+      <path d="M207 267 Q213 283 220 279" stroke="#5A7360" />
+      <path d="M230 279 Q236 284 243 267" stroke="#4F6076" />
+      <path d="M257 267 Q262.5 279 268 267" stroke="#1F3044" />
+    </g>
+    <!-- adults -->
+    <g>
+      <circle cx="125" cy="250" r="6.5" fill="#C4553B" /><path d="M117 267 a8 8 0 0 1 16 0 V292 H117 Z" fill="#C4553B" />
+      <circle cx="150" cy="250" r="6.5" fill="#D98B3A" /><path d="M142 267 a8 8 0 0 1 16 0 V292 H142 Z" fill="#D98B3A" />
+      <circle cx="200" cy="250" r="6.5" fill="#5A7360" /><path d="M192 267 a8 8 0 0 1 16 0 V292 H192 Z" fill="#5A7360" />
+      <circle cx="250" cy="250" r="6.5" fill="#1F3044" /><path d="M242 267 a8 8 0 0 1 16 0 V292 H242 Z" fill="#1F3044" />
+      <circle cx="275" cy="250" r="6.5" fill="#7A5C8E" /><path d="M267 267 a8 8 0 0 1 16 0 V292 H267 Z" fill="#7A5C8E" />
+    </g>
+    <!-- children -->
+    <g>
+      <circle cx="175" cy="268" r="5" fill="#C9A63C" /><path d="M169 281 a6 6 0 0 1 12 0 V292 H169 Z" fill="#C9A63C" />
+      <circle cx="225" cy="268" r="5" fill="#4F6076" /><path d="M219 281 a6 6 0 0 1 12 0 V292 H219 Z" fill="#4F6076" />
+    </g>
+  </g>
+</svg>

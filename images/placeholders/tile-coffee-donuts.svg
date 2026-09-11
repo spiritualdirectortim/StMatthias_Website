@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 750" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Photo placeholder: Coffee and donuts in Fr. Lacey Hall. Needs parish photo.">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#C98467"/>
+      <stop offset="1" stop-color="#8B3E28"/>
+    </linearGradient>
+    <pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#FAF8F5" fill-opacity=".10"/>
+    </pattern>
+  </defs>
+  <rect width="1000" height="750" fill="url(#g)"/>
+  <rect width="1000" height="750" fill="url(#dots)"/>
+  <path d="M305 589.5 V394.5 A195 195 0 0 1 695 394.5 V589.5" fill="none" stroke="rgba(250,248,245,.55)" stroke-width="2"/>
+  <line x1="236.75" y1="589.5" x2="763.25" y2="589.5" stroke="rgba(250,248,245,.55)" stroke-width="2"/>
+  <g font-family="'Source Sans 3','Source Sans Pro','Helvetica Neue',Arial,sans-serif" fill="#FAF8F5">
+    <text x="45" y="635.1" font-size="21" font-weight="700" letter-spacing="2.52">PHOTO PLACEHOLDER</text>
+    <text x="45" y="675.6" font-size="30" font-family="Newsreader,'Iowan Old Style',Georgia,serif" font-weight="500">Coffee and donuts in Fr. Lacey Hall</text>
+    <text x="45" y="705" font-size="21" font-weight="700" letter-spacing="1.68" fill-opacity=".85">[NEEDS PARISH PHOTO]</text>
+  </g>
+</svg>

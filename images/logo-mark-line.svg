@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">St. Matthias Parish</title>
+  <desc id="desc">A simple line drawing of the St. Matthias church with a tall cross and seven colorful community dots.</desc>
+  <g fill="none" stroke="#1F3044" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M9 45.5 24.5 18 50 27v18.5H9Z"/>
+    <path d="M24.5 18 38 37.5v8"/>
+    <path d="M19.5 6v39.5M13.5 13.5h12"/>
+    <path d="M6 45.5h48M14 59h36"/>
+  </g>
+  <g>
+    <circle cx="9.5" cy="52" r="3.1" fill="#C4553B"/>
+    <circle cx="17" cy="52" r="2.2" fill="#D98B3A"/>
+    <circle cx="24.5" cy="52" r="3.5" fill="#C9A63C"/>
+    <circle cx="32" cy="52" r="2.6" fill="#5A7360"/>
+    <circle cx="39.5" cy="52" r="3.3" fill="#4F6076"/>
+    <circle cx="47" cy="52" r="2.3" fill="#1F3044"/>
+    <circle cx="54.5" cy="52" r="3" fill="#7A5C8E"/>
+  </g>
+</svg>
