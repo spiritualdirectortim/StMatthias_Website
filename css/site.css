@@ -726,11 +726,11 @@ html[data-direction="hub"] .overline::before { width: .5rem; height: .5rem; bord
 .mission-scroll {
   --p: 0;
   position: relative;
-  height: 240svh;
+  height: 100svh;
   background: var(--navy-deep);
   color: var(--stone-parchment);
 }
-.mission-sticky { position: sticky; top: 0; height: 100svh; overflow: clip; }
+.mission-sticky { position: relative; height: 100svh; overflow: clip; }
 .mission-copy {
   position: absolute;
   inset: 0;
@@ -748,8 +748,8 @@ html[data-direction="hub"] .overline::before { width: .5rem; height: .5rem; bord
   line-height: 1.02;
   letter-spacing: -.03em;
 }
-.mission-copy h2 .lit-word { color: rgba(250, 248, 245, .18); transition: color 240ms linear; }
-.mission-copy h2 .lit-word.is-lit { color: var(--stone-parchment); }
+.mission-copy h2 .lit-word { color: var(--stone-parchment); opacity: var(--word-light, .18); }
+.mission-copy h2 .lit-word.is-lit { opacity: 1; }
 .mission-copy > p:last-child { max-width: 43rem; margin: var(--s-lg) auto 0; color: rgba(250, 248, 245, .63); }
 .mission-image {
   position: absolute;
@@ -816,10 +816,9 @@ html[data-direction="hub"] .overline::before { width: .5rem; height: .5rem; bord
 .sunday-inner .sunday-address { margin-top: 1.25rem; font-size: var(--body-md); }
 .sunday-address a { font-weight: 600; text-decoration-color: var(--terracotta); text-decoration-thickness: 1.5px; }
 
-.ministry-scroll { --p: 0; position: relative; height: 180svh; }
+.ministry-scroll { --p: 0; position: relative; height: 100svh; }
 .ministry-sticky {
-  position: sticky;
-  top: 0;
+  position: relative;
   height: 100svh;
   display: grid;
   grid-template-rows: auto minmax(0, 1fr);

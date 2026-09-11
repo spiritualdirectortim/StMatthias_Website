@@ -279,6 +279,14 @@
     return clamp01((viewportHeight - rect.top) / (viewportHeight * .78));
   }
 
+  function wordLightProgress(el, viewportHeight) {
+    var heading = el.querySelector("h2");
+    if (!heading) return 1;
+    var rect = heading.getBoundingClientRect();
+    var finishOffset = 100;
+    return clamp01((viewportHeight - rect.top) / (rect.height + finishOffset));
+  }
+
   function eventTriggerProgress(el, viewportHeight) {
     var intro = el.querySelector(".events-intro");
     var button = el.querySelector(".events-intro .btn");
@@ -297,7 +305,10 @@
     if (!desktop.matches || reduce.matches) {
       renderHeroScene();
       scrubs.forEach(function (el) { el.style.setProperty("--p", 1); });
-      missionWords.forEach(function (word) { word.classList.add("is-lit"); });
+      missionWords.forEach(function (word) {
+        word.style.removeProperty("--word-light");
+        word.classList.add("is-lit");
+      });
       if (flightLayer) flightLayer.style.visibility = "hidden";
       missionImages.forEach(function (image) { image.style.visibility = "visible"; });
       document.querySelectorAll(".mission-image, .flight-image, .ministry-card img, .ministry-card > div, .event-poster").forEach(function (el) {
@@ -320,10 +331,13 @@
     scrubs.forEach(function (el) {
       var p = progressFor(el, viewportHeight);
       if (el.hasAttribute("data-word-light")) {
+        p = wordLightProgress(el, viewportHeight);
         el.style.setProperty("--p", p.toFixed(4));
-        var litCount = Math.round(Math.min(1, p / .72) * missionWords.length);
+        var wordPosition = p * missionWords.length;
         missionWords.forEach(function (word, index) {
-          word.classList.toggle("is-lit", index < litCount);
+          var wordProgress = clamp01(wordPosition - index);
+          word.style.setProperty("--word-light", (.18 + .82 * wordProgress).toFixed(3));
+          word.classList.toggle("is-lit", wordProgress >= 1);
         });
       }
       if (el.classList.contains("ministry-scroll")) {
