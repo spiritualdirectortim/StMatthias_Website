@@ -85,6 +85,9 @@
   var heroNext = hero ? hero.querySelector("[data-hero-next]") : null;
   var carouselIndex = 0;
   var carouselTimer = 0;
+  var carouselInterval = 5000;
+  var heroCrossfadeDuration = 1200;
+  var heroLeavingTimers = [];
   var syncHeroToScroll = true;
   var scrubs = Array.prototype.slice.call(document.querySelectorAll("[data-scrub]"));
   var missionSection = document.querySelector(".mission-scroll");
@@ -122,6 +125,16 @@
     carouselIndex = (carouselIndex + scenes.length) % scenes.length;
     scenes.forEach(function (scene, index) {
       var isActive = index === carouselIndex;
+      var wasActive = scene.classList.contains("is-active");
+      window.clearTimeout(heroLeavingTimers[index]);
+      if (isActive) {
+        scene.classList.remove("is-leaving");
+      } else if (wasActive) {
+        scene.classList.add("is-leaving");
+        heroLeavingTimers[index] = window.setTimeout(function () {
+          if (!scene.classList.contains("is-active")) scene.classList.remove("is-leaving");
+        }, heroCrossfadeDuration);
+      }
       scene.classList.toggle("is-active", isActive);
       scene.setAttribute("aria-hidden", String(!isActive));
     });
@@ -140,7 +153,7 @@
         renderHeroScene();
       }
       scheduleCarousel();
-    }, 3000);
+    }, carouselInterval);
   }
 
   function moveCarousel(direction) {

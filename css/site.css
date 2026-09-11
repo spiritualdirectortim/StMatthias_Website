@@ -592,6 +592,8 @@ html[data-direction="hub"] .overline::before { width: .5rem; height: .5rem; bord
 /* ===== Narrative scroll homepage ===== */
 .scroll-hero {
   --hero-p: 0;
+  --hero-motion-duration: 10s;
+  --hero-crossfade-duration: 1.2s;
   position: relative;
   height: 300svh;
   background: var(--navy-deep);
@@ -611,9 +613,15 @@ html[data-direction="hub"] .overline::before { width: .5rem; height: .5rem; bord
   color: var(--stone-parchment);
   opacity: 0;
   visibility: hidden;
-  transition: opacity 700ms var(--ease-in-out), visibility 700ms;
+  transition:
+    opacity var(--hero-crossfade-duration) var(--ease-in-out),
+    visibility 0s linear var(--hero-crossfade-duration);
 }
-.hero-scene.is-active { opacity: 1; visibility: visible; }
+.hero-scene.is-active {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
 .hero-scene-media {
   position: absolute;
   inset: 0;
@@ -621,10 +629,35 @@ html[data-direction="hub"] .overline::before { width: .5rem; height: .5rem; bord
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transform: scale(1.045);
-  transition: transform 2.2s var(--ease-out);
+  transform: translate3d(0, 0, 0) scale(1);
+  transform-origin: center;
+  will-change: transform;
 }
-.hero-scene.is-active .hero-scene-media { transform: scale(1); }
+.hero-scene[data-hero-motion="pan"] .hero-scene-media {
+  transform: translate3d(-4%, 0, 0) scale(1.08);
+}
+.hero-scene[data-hero-motion="zoom"] .hero-scene-media {
+  object-position: 58% center;
+  transform-origin: 58% center;
+}
+.hero-scene[data-hero-framing="right"] .hero-scene-media {
+  object-position: right center;
+  transform-origin: right center;
+}
+.hero-scene[data-hero-motion="pan"]:is(.is-active, .is-leaving) .hero-scene-media {
+  animation: hero-pan-right var(--hero-motion-duration) linear forwards;
+}
+.hero-scene[data-hero-motion="zoom"]:is(.is-active, .is-leaving) .hero-scene-media {
+  animation: hero-zoom-in var(--hero-motion-duration) linear forwards;
+}
+@keyframes hero-pan-right {
+  from { transform: translate3d(-4%, 0, 0) scale(1.08); }
+  to { transform: translate3d(0, 0, 0) scale(1.08); }
+}
+@keyframes hero-zoom-in {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(0, 0, 0) scale(1.06); }
+}
 .hero-scene-shade {
   position: absolute;
   inset: 0;
@@ -951,6 +984,7 @@ html[data-direction="hub"] .overline::before { width: .5rem; height: .5rem; bord
   .scroll-hero-sticky { position: relative; height: 100%; min-height: 42rem; overflow: clip; }
   .hero-scene { position: absolute; inset: 0; min-height: 0; opacity: 0; visibility: hidden; transition: none; }
   .hero-scene.is-active { opacity: 1; visibility: visible; }
+  .hero-scene-media { animation: none !important; transform: none !important; }
   .hero-arrow { transition: none; }
   .hero-chrome, .scene-progress, .mission-hint { display: none; }
   .mission-sticky { min-height: 100svh; padding-block: 6rem; }
