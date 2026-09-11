@@ -4,7 +4,7 @@ Date: 2026-09-10
 Status: concept for review. Not launched. No payment processing is built.
 Scope: **homepage and site navigation only.** The section pages (Plan a Visit, Worship & Sacraments, Community, Preschool, About, Give) are described here as notes and intro copy. They are not built.
 
-**What is built:** `index.html`, `css/tokens.css`, `css/site.css`, `js/nav.js`, `js/motion.js`, `images/logo-badge.svg`, `images/logo-lockup.svg`, `images/placeholders/*.svg`, and `videos/hero-sign-of-peace-final.png`. Earlier hero versions are retained but are no longer used by the visible hero.
+**What is built:** `index.html`, `css/tokens.css`, `css/site.css`, `js/nav.js`, `js/motion.js`, `images/logo-badge.svg`, `images/logo-lockup.svg`, `images/placeholders/*.svg`, and `images/Congregation-v2.png`. Earlier hero versions are retained but are no longer used by the visible hero.
 
 **How to view:** open the "St. Matthias preview" server from `.claude/launch.json` (it runs `node .claude/serve.js 8787`) and go to `http://localhost:8787`. The three visual directions switch from the "Concept" control at the bottom-left of the page (see section 10).
 
@@ -194,7 +194,7 @@ Order follows the brief. One idea per section. Every section has a heading, at m
 ### Motion notes
 
 - **Page load:** the hero headline slides up word by word out of a mask; the overline, lede, buttons, and Mass card follow in order. Nothing animates until the web fonts are ready (800 ms fallback).
-- **Hero:** the image parallaxes at 18% of scroll speed and fades as the next section arrives.
+- **Hero:** the opening carousel occupies 84% of the viewport so a 16% preview of the next section is always visible. The first image pans continuously from its far-left framing to its far-right framing over fifteen seconds, beginning with the priest in white-and-gold visible and ending with the priest in black fully visible. The second and third carousel images remain on screen for five seconds each. Later narrative sections retain their scroll-linked transitions.
 - **Sections:** headings and cards fade and rise 24 px when they enter the viewport (IntersectionObserver). Card grids stagger by 90 ms.
 - **Collage:** on desktop only, the section is 280 vh tall with a sticky 100 vh stage. Scroll progress (0–1) drives each tile's own slice of the timeline. Tiles start off-canvas with a rotation, then settle into fixed rest positions with a small resting tilt. Captions fade in at 78% of each tile's travel. Below 1024 px there is no scrub; the tiles are a static grid.
 - **Reduced motion:** all reveals are shown, the collage is shown in its settled state, and transitions are off.

@@ -86,6 +86,7 @@
   var carouselIndex = 0;
   var carouselTimer = 0;
   var carouselInterval = 5000;
+  var openingCarouselInterval = 15000;
   var heroCrossfadeDuration = 1200;
   var heroLeavingTimers = [];
   var syncHeroToScroll = true;
@@ -145,6 +146,7 @@
   function scheduleCarousel() {
     window.clearTimeout(carouselTimer);
     if (!hero || scenes.length < 2 || reduce.matches) return;
+    var sceneInterval = carouselIndex === 0 ? openingCarouselInterval : carouselInterval;
     carouselTimer = window.setTimeout(function () {
       var rect = hero.getBoundingClientRect();
       var isVisible = rect.top < window.innerHeight && rect.bottom > 0;
@@ -153,7 +155,7 @@
         renderHeroScene();
       }
       scheduleCarousel();
-    }, carouselInterval);
+    }, sceneInterval);
   }
 
   function moveCarousel(direction) {
@@ -306,8 +308,11 @@
     }
 
     if (hero) {
-      var heroProgress = progressFor(hero, viewportHeight);
-      if (syncHeroToScroll) carouselIndex = Math.min(scenes.length - 1, Math.floor(heroProgress * scenes.length));
+      var heroRect = hero.getBoundingClientRect();
+      if (syncHeroToScroll && heroRect.height > viewportHeight) {
+        var heroProgress = progressFor(hero, viewportHeight);
+        carouselIndex = Math.min(scenes.length - 1, Math.floor(heroProgress * scenes.length));
+      }
       renderHeroScene();
       syncHeroToScroll = false;
     }
