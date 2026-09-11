@@ -2,7 +2,7 @@
 
 ## What the page uses now
 
-- `../images/Congregation-v2.png` — the active first hero image. It is an AI-generated concept based on the real church-interior photograph and supplied parish-member reference photos, showing a multigenerational congregation exchanging the Sign of Peace, with adults in their 30s in front and adults in their 40s throughout the middle and rear.
+- `../images/Congregation-v3.png` — the active first hero image. It is an AI-generated concept based on the real church-interior photograph and supplied parish-member reference photos, showing a multigenerational congregation exchanging the Sign of Peace, with adults in their 30s in front and adults in their 40s throughout the middle and rear. The visible handshakes and limbs have been anatomy-checked and corrected.
 
 The parish and recognizable people represented should approve its use and disclosure, or it should be replaced with an authentic parish photograph before launch.
 

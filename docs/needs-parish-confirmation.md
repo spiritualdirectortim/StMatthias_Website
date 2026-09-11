@@ -101,7 +101,7 @@ Every image on the homepage except the hero is a placeholder. The hero is an AI-
 
 | Placeholder | File | Photo needed |
 |---|---|---|
-| Hero image | `images/Congregation-v2.png` | Approve the AI-generated concept, the use of the supplied parish-member likenesses, and appropriate disclosure; or replace it with an authentic parish photograph of the Sign of Peace. |
+| Hero image | `images/Congregation-v3.png` | Approve the AI-generated concept, the use of the supplied parish-member likenesses, and appropriate disclosure; or replace it with an authentic parish photograph of the Sign of Peace. |
 | Tile 1 | `images/placeholders/tile-welcome-blessing.svg` | The newcomer blessing at a Welcome Weekend Mass |
 | Tile 2 | `images/placeholders/tile-coffee-donuts.svg` | Coffee and donuts in the hall after the 9:45 Mass |
 | Tile 3 | `images/placeholders/tile-saturday-appetizers.svg` | Saturday appetizers and the saint film |
@@ -111,7 +111,7 @@ Every image on the homepage except the hero is a placeholder. The hero is an AI-
 | Giving | `images/placeholders/giving.svg` | Not used on the page today; reserved for the Give page |
 
 - [ ] `images/church-interior.jpg` was taken from the current site (`wp-content/uploads/inside.jpg`) to build the placeholder video. Confirm the parish owns the rights to use it.
-- [ ] Obtain approval from the recognizable parish members represented in `images/Congregation-v2.png`, approve appropriate disclosure of the AI-generated scene, or replace it with an authentic photograph before launch.
+- [ ] Obtain approval from the recognizable parish members represented in `images/Congregation-v3.png`, approve appropriate disclosure of the AI-generated scene, or replace it with an authentic photograph before launch.
 - [ ] Photo releases: anyone recognizable in a published photo, especially children, needs consent on file.
 - [ ] Logo: approve `images/logo-badge.svg` and `images/logo-lockup.svg` before any print or social use.
 

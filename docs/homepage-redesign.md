@@ -4,7 +4,7 @@ Date: 2026-09-10
 Status: concept for review. Not launched. No payment processing is built.
 Scope: **homepage and site navigation only.** The section pages (Plan a Visit, Worship & Sacraments, Community, Preschool, About, Give) are described here as notes and intro copy. They are not built.
 
-**What is built:** `index.html`, `css/tokens.css`, `css/site.css`, `js/nav.js`, `js/motion.js`, `images/logo-badge.svg`, `images/logo-lockup.svg`, `images/placeholders/*.svg`, and `images/Congregation-v2.png`. Earlier hero versions are retained but are no longer used by the visible hero.
+**What is built:** `index.html`, `css/tokens.css`, `css/site.css`, `js/nav.js`, `js/motion.js`, `images/logo-badge.svg`, `images/logo-lockup.svg`, `images/placeholders/*.svg`, and `images/Congregation-v3.png`. Earlier hero versions are retained but are no longer used by the visible hero.
 
 **How to view:** open the "St. Matthias preview" server from `.claude/launch.json` (it runs `node .claude/serve.js 8787`) and go to `http://localhost:8787`. The three visual directions switch from the "Concept" control at the bottom-left of the page (see section 10).
 
