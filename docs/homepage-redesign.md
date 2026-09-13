@@ -391,9 +391,8 @@ Recommendation: **Warm** for launch. It carries the "know your name" message bes
 
 ## Logo
 
-- `images/logo-badge.svg` — the primary logo. A round navy ring with the words "ST. MATTHIAS PARISH" on top and "Responding to the Call of Jesus" below. Inside: a simple line drawing of the St. Matthias church with its tall cross, redwoods on both sides, and a row of people of every color holding hands along the ground line. Colors are the Sanctuary Editorial navy, terracotta, sage, and parchment.
-- `images/logo-lockup.svg` — the horizontal header version: the same disc mark at small size next to the name and tagline.
-- The wording from the current logo is kept. The church building is kept. The open, welcoming reading comes from the row of people, not from any slogan.
+- `images/LogoIcon.png` — the active parish mark used consistently in both the header and footer.
+- The header pairs the mark with the parish name and “Responding to the Call of Jesus” tagline; the footer pairs the same mark with the parish name and contact information.
 - `[NEEDS PARISH CONFIRMATION]` the parish should approve the mark before it is used on print or social.
 
 ---

@@ -490,7 +490,7 @@ html.drawer-open { overflow: hidden; }
 .site-footer { padding-block: var(--s-2xl); background: var(--navy-deep); color: rgba(250, 248, 245, .86); font-size: var(--body-md); }
 .footer-grid { display: grid; gap: var(--s-xl) var(--gutter); }
 .footer-brand { display: flex; gap: 1rem; align-items: flex-start; }
-.footer-badge { width: 4.75rem; flex: none; }
+.footer-badge { width: 4.75rem; height: 4.75rem; padding: .2rem; flex: none; object-fit: contain; border-radius: .5rem; }
 .footer-brand strong { display: block; font-family: var(--font-display); font-size: var(--headline-sm); font-weight: 500; color: var(--stone-parchment); }
 .footer-brand address { margin-top: .5rem; line-height: 1.55; }
 .site-footer h2 { margin-bottom: .9rem; font-family: var(--font-body); font-size: var(--label-sm); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(250, 248, 245, .6); }
