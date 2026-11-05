@@ -1,6 +1,6 @@
 # Needs Parish Confirmation
 
-Updated: 2026-11-04
+Updated: 2026-11-05 (events refreshed)
 Who should answer: the parish office, Fr. Roy Remo, or the staff member named for each area.
 This file is private working documentation. `.vercelignore` keeps `docs/` off the published site.
 
@@ -47,8 +47,10 @@ Source: the parish's public Google Calendar feed ("ST. M FACILITIES CALENDAR," t
 
 | Event | Date and time | Confirm |
 |---|---|---|
-| Masses of Remembrance (featured) | Sat Nov 7, 5:00 p.m.; Sun Nov 8, 9:45 a.m. (livestreamed) | Description written from Catholic practice for November ("the Church remembers and prays for all who have died"). Confirm wording. |
-| Caroling, Cookies & Cocoa (featured) | Sat Dec 12, 2:30–5:00 p.m. | **The calendar gives no location or description.** The site says "St. Matthias Parish." Confirm the location (church, hall, or neighborhood) and any details. |
+| Masses of Remembrance (featured) | Sat Nov 7, 5:00 p.m.; Sun Nov 8, 9:45 a.m. (livestreamed) | Description follows Deacon Rich's outline of the ritual (ofrenda, reading of names, candles, daffodil bulbs). Confirm wording. |
+| Caroling, Cookies & Cocoa (featured) | Sat Dec 12, 2:00 p.m., Fr. Lacey Hall | Start time and place from Melanie Dresbach and Deacon Rich (emails Oct 22 and Nov 4); the calendar said 2:30–5:00 p.m., so no end time is shown. Youth-led; bring a bell; song sheets provided. Confirm whether the group walks outside. |
+| St. Vincent de Paul Winter Drive | Weekend Masses Nov 14–15 and 21–22; drop-off in Fr. Lacey Hall | From the SVdP flyer and emails from Deacon Rich and Bob Thompson. Men's and women's winter items only. |
+| Little Turkeys Dine Out Night (preschool) | Tue Nov 17, 4:00–8:00 p.m., McDonald's, 185 Chestnut St., Redwood City | From Rose Juarez's flyer (Nov 4). Proceeds go to new trikes and bikes for the preschool playground. |
 | Christmas Eve Masses (featured) | Thu Dec 24, 4:00 p.m. and 9:00 p.m. | Calendar entries have no location; the site says St. Matthias Church. Confirm both times. Is there a Christmas Day Mass? |
 | Thanksgiving Day Mass | Thu Nov 26, 10:00 a.m. | Location inferred (St. Matthias Church). |
 | Solemnity of the Immaculate Conception | Tue Dec 8, 7:00 p.m. | Location inferred. Description calls it a holy day of obligation (true in the U.S. for Dec 8, 2026). |
@@ -63,6 +65,8 @@ Source: the parish's public Google Calendar feed ("ST. M FACILITIES CALENDAR," t
 - **First Communion,** Sun May 2, 2027 (no time; a family celebration).
 - **Costigan/Kerns Concert,** Feb 21, 2027 (no time or description).
 - **Preschool Christmas Show,** Wed Dec 2, 7:00 p.m., in the church. Public, or for preschool families?
+- **Giving Tree** (unwrapped toys for St. Francis Center): dates pending from St. Francis Center. St. Francis's own Tess' Toy Drive is Dec 18–19, with drop-off Dec 11–17, 9:00 a.m.–1:30 p.m., at 151 Buckingham Ave. Publish the Giving Tree once the parish sets its dates.
+- **Advent Taizé prayer,** proposed by Melanie Dresbach for Tue Dec 8 and Tue Dec 15 at 10:00 a.m. in the hall (email Nov 4). Not yet confirmed.
 - **"Sunday Mass, Bethlehem AD Angels,"** Dec 13. Meaning unclear.
 - **Training for Eucharistic Ministers and Readers,** Sat Nov 14, 10:00 a.m.–noon (internal ministry training).
 - Excluded by policy (administrative or internal): special collections (Campaign for Human Development Nov 14, St. Vincent de Paul Nov 28, Retirement for Religious Dec 12, Building Fund Dec 19), "Parish Office Closed," staff, council, and committee meetings, funerals, baptisms, and preschool closures.
@@ -76,7 +80,7 @@ Source: the parish's public Google Calendar feed ("ST. M FACILITIES CALENDAR," t
 
 ## D. About Us, staff, and contact
 
-- **Staff roster** (from the Staff Directory, 2026-11-04). Confirm names, titles, and each person's consent to be listed: Fr. Roy Remo (Pastor), Fr. Alner "Al" Nambatac (Parochial Vicar), Deacon Rich Foley (Adult Faith Formation Coordinator), Deacon David Rolandelli (listed as "RCIA Coordinator"; shown as "Becoming Catholic Coordinator"), Carmen Perlas, Lisa Bamford (Administrative Assistant), Melanie Dresbach (Music Director), Rosemary Juarez (Preschool Director).
+- **Staff roster** (from the Staff Directory, 2026-11-04). Confirm names, titles, and each person's consent to be listed: Fr. Roy Remo (Pastor), Fr. Alner "Al" Nambatac (Parochial Vicar), Timothy Valderrama (Operations Manager; added 2026-11-05 at his request, with his own photo and a blurb drawn from the Operations Manager II job description), Deacon Rich Foley (Adult Faith Formation Coordinator), Deacon David Rolandelli (listed as "RCIA Coordinator"; shown as "Becoming Catholic Coordinator"), Carmen Perlas, Lisa Bamford (Administrative Assistant), Melanie Dresbach (Music Director), Rosemary Juarez (Preschool Director).
 - **Carmen Perlas's title:** the Staff Directory says "Religious Education Coordinator"; the Faith Formation page signs her as "Pastoral Associate." The site uses Religious Education Coordinator.
 - **Sabrina Harper** is the named contact on several old pages (Baptism for older children, First Communion, Confirmation, Catechesis, and adult studies) but is **not** in the current Staff Directory. The new site names Carmen Perlas for children's and youth programs instead. Confirm.
 - Named volunteer contacts on old pages were replaced with "the parish office": Joey Gutierrez (Eucharistic Ministers) and Joe Yanacek (ushers). Confirm whether to name them.
@@ -138,14 +142,18 @@ Every non-logo image is a solid-color placeholder (`.media-ph`) with a `data-ima
 | `support-regular-collection`, `support-roofing-fund` (and `support-annual-appeal`, `support-building-fund`, `support-st-vincent-de-paul` if activated) | Homepage giving posters and Support Us page | The church and parish life; the church roof or building exterior |
 | `support-hero` | Support Us page hero | Parishioners at the offertory or a welcoming church interior (4:5 on desktop, 16:9 on phones) |
 | `about-hero`, `sacraments-hero`, `faith-formation-hero`, `ministries-hero`, `events-hero` | Inner-page heroes, beside the headline (4:5 on desktop, 16:9 on phones) | The church in its Emerald Hills setting; a sacramental moment at the altar or font; families learning together; volunteers serving; a parish gathering |
-| `about-church-exterior` | About Us, Our Parish & Mission (4:3 desktop, 16:9 phones; same for every section photo below) | St. Matthias Church exterior |
-| `staff-fr-roy-remo`, `staff-fr-alner-nambatac`, `staff-deacon-rich-foley`, `staff-deacon-david-rolandelli`, `staff-carmen-perlas`, `staff-lisa-bamford`, `staff-melanie-dresbach`, `staff-rosemary-juarez` | About Us, Staff & Leadership (square, shown as a circle) | A head-and-shoulders portrait of each person |
+| `about-church-exterior` | About Us, Our Parish & Mission (4:3 desktop, 16:9 phones; same for every section photo below) | St. Matthias Church exterior. Filled 2026-11-05 with an AI-generated scene the parish chose (`images/generated/about-church-exterior-welcome-final.webp`); replace with a real photo when one exists. |
+| `staff-fr-roy-remo`, `staff-fr-alner-nambatac`, `staff-timothy-valderrama`, `staff-deacon-rich-foley`, `staff-deacon-david-rolandelli`, `staff-carmen-perlas`, `staff-lisa-bamford`, `staff-melanie-dresbach`, `staff-rosemary-juarez` | About Us, Staff & Leadership (square, shown as a circle) | A head-and-shoulders portrait of each person |
 | `sacrament-baptism`, `sacrament-reconciliation`, `sacrament-eucharist`, `sacrament-confirmation`, `sacrament-marriage`, `sacrament-anointing`, `sacrament-holy-orders` | Sacraments page, one per section | The font, the confessional, First Communion, a Confirmation, a wedding, the oils or a visit to the sick, an ordination or a priest at the altar |
 | `formation-children-families`, `formation-youth`, `formation-adults`, `formation-becoming-catholic` | Faith Formation page, one per section | GIFT families, youth ministry, adult Bible study, an RCIA/Easter Vigil moment |
 | `ministry-worship`, `ministry-service`, `ministry-welcome`, `ministry-care`, `ministry-parish-support` | Ministries page, one per section | Music ministry or readers, St. Vincent de Paul volunteers, greeters, Communion to the homebound, parish volunteers at work |
 | `events-weekend-mass` | Events page, "Mass at St. Matthias" | The church during weekend Mass |
 
-Technical note for when photos arrive: add an optional `image` field to each event and giving option and render it in `scripts/build.py`. The homepage flight animation pairs mission tile *n* with Upcoming card *n*, so keep their images visually related, and export WebP files with explicit width and height for page speed.
+**Homepage status (2026-11-05):** every homepage slot above (hero slides and fallback, Support Us card, mission tiles, Upcoming cards, giving posters) now shows an AI-generated stand-in photo from `images/GeminiGeneratedImages/`. They show no real parishioners or the real church, and they should be replaced with parish photography when available. To swap one, export a WebP with the same file name into `images/GeminiGeneratedImages/web/` and run `python3 scripts/build.py`. A new event or giving option gets its photo automatically when a file named after its id exists, and otherwise keeps its color placeholder.
+
+**Inner pages status (2026-11-05):** the page heroes, every Sacraments and Faith Formation section, the Events page (its weekend Mass photo and each event row), and every Support Us image now use stand-ins from the same folder. To swap a hero or section photo, replace its `web/` file under the same name. Staff portraits (2026-11-05): real headshots from the current Staff Directory, cropped square in `images/staff/` (Deacon Rich's was stored sideways and is rotated); Timothy's is his own photo. Deacon David Rolandelli and Carmen Perlas have no photo on the old site and stay placeholders. Confirm each person is happy with their photo. Still placeholders: `ministry-worship`, `ministry-care` and `ministry-parish-support` (to be generated next).
+
+Technical note: the homepage flight animation pairs mission tile *n* with Upcoming card *n*, so keep their images visually related, and export WebP files with explicit width and height for page speed.
 
 Other image questions:
 - These files are no longer used by any page and can be archived: `images/Congregation*.png`, `images/generated/*`, `images/church-interior.jpg`, `images/placeholders/*.svg`, and `videos/*`. `Congregation-v3.png` is an AI-generated scene with likenesses of real parishioners; it must not be presented as documentary photography.

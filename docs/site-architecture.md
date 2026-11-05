@@ -74,7 +74,11 @@ Build rules:
 
 ## 5. Placeholders
 
-All non-logo media are `<div class="media-ph">` blocks in token colors (terracotta, sage, slate, sand, taupe, navy, moss, clay). Each carries `data-image-slot="…"` naming the future photo and `aria-hidden="true"`. The slots and the photos they need are listed in `docs/needs-parish-confirmation.md`, section F. No `<img>` elements remain except the logo.
+Every non-logo image slot carries the `media-ph` class and a `data-image-slot="…"` name. An empty slot is a `<div>` in a token color (terracotta, sage, slate, sand, taupe, navy, moss, clay) with `aria-hidden="true"`. A filled slot is a decorative `<img alt="">` with the same classes, so it keeps the box's size and shows the color while loading (`img.media-ph` uses `object-fit: cover`). The slots and the photos they need are listed in `docs/needs-parish-confirmation.md`, section F.
+
+The homepage is filled with AI-generated stand-in photos (2026-11-05) from `images/GeminiGeneratedImages/web/`; that folder's README maps each file to its slot. `scripts/build.py` fills the generated regions automatically through `photo()`. The hero uses `hero-<event id>-1200/2400.webp`, an Upcoming card uses `event-<event id>-960.webp`, a giving poster uses `<imageSlot>-800.webp`, and a slot with no matching file falls back to its placeholder. The Support Us card, mission tiles, and flight tiles are fixed `<img>` tags in `index.html`.
+
+The inner pages use the same set. `photo()` also fills the Events-page event rows and the Support Us giving cards. Page heroes (`<slot>-960.webp`, 4:5) and section photos (`<slot>-1200.webp`, 4:3) are fixed `<img>` tags in each page. Staff portraits are real headshots in `images/staff/staff-<name>.jpg` (256 px squares, shown as circles). Still placeholders: `staff-deacon-david-rolandelli`, `staff-carmen-perlas`, and `ministry-worship`, `ministry-care` and `ministry-parish-support`.
 
 ## 6. Preview locally
 

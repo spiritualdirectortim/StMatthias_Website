@@ -61,6 +61,32 @@ def e(text):
     return escape(str(text), quote=True)
 
 
+# ---------------------------------------------------------------- photos
+
+# Web-ready photos, named by image slot: <name>-<width>.webp (see that folder's README).
+# A slot with no matching file keeps its solid-colour placeholder.
+PHOTO_DIR = "images/GeminiGeneratedImages/web"
+PHOTO_SIZES = {          # file widths available per kind, and their height at the largest width
+    "hero": ([1200, 2400], 1340),
+    "event": ([960], 540),
+    "giving": ([800], 600),
+}
+
+
+def photo(cls, slot, name, kind, sizes="100vw", eager=False):
+    """An <img> for `name` if its files exist, else the original placeholder <div>."""
+    widths, height = PHOTO_SIZES[kind]
+    files = [(w, "%s/%s-%d.webp" % (PHOTO_DIR, name, w)) for w in widths]
+    if not all((ROOT / f).exists() for _, f in files):
+        return '<div class="%s" data-image-slot="%s" aria-hidden="true"></div>' % (cls, e(slot))
+    srcset = ""
+    if len(files) > 1:
+        srcset = ' srcset="%s" sizes="%s"' % (", ".join("/%s %dw" % (f, w) for w, f in files), sizes)
+    loading = ' fetchpriority="high"' if eager else ' loading="lazy"'
+    return ('<img class="%s" data-image-slot="%s" src="/%s"%s width="%d" height="%d" alt="" decoding="async"%s>'
+            % (cls, e(slot), files[-1][1], srcset, files[-1][0], height, loading))
+
+
 def load(name):
     with open(DATA / name, encoding="utf-8") as fh:
         return json.load(fh)
@@ -123,7 +149,13 @@ def when(event, year):
             date_label = "%s %d – %s %d" % (MONTHS[a.month - 1], a.day, MONTHS[b.month - 1], b.day)
         if a.year != year:
             date_label += ", %d" % a.year
-        time_label = " · ".join("%s %s" % (DAYS[s[0].weekday()], t(s)) for s in sessions)
+        # Repeating weekly sessions (e.g. two weekends of Masses) list each weekday-time once.
+        labels = []
+        for s in sessions:
+            label = "%s %s" % (DAYS[s[0].weekday()], t(s))
+            if label not in labels:
+                labels.append(label)
+        time_label = " · ".join(labels)
     return date_label, time_label, first[0].isoformat(), end.isoformat()
 
 
@@ -374,8 +406,8 @@ def render_hero(events, year):
         title_attr = ' data-split style="--d:320ms"' if first else ""
         out.append("\n".join([
             '<article class="%s" data-scene%s%s%s aria-labelledby="hero-event-%s">' % (cls, attrs, end_attr(ev), hidden, e(ev["id"])),
-            '  <div class="hero-scene-media media-ph %s" data-image-slot="featured-event-%d" aria-hidden="true"></div>'
-            % (HERO_COLORS[i % len(HERO_COLORS)], i + 1),
+            "  " + photo("hero-scene-media media-ph %s" % HERO_COLORS[i % len(HERO_COLORS)],
+                         "featured-event-%d" % (i + 1), "hero-%s" % ev["id"], "hero", eager=first),
             '  <div class="hero-scene-shade"></div>',
             '  <div class="container hero-scene-copy">',
             '    <p class="overline"%s>%s</p>' % (load(200), e(ev["category"])),
@@ -391,7 +423,8 @@ def render_hero(events, year):
     fallback_hidden = " hidden" if featured else ""
     out.append("\n".join([
         '<article class="hero-scene%s" data-scene-fallback%s aria-labelledby="hero-fallback-title">' % ("" if featured else " is-active", fallback_hidden),
-        '  <div class="hero-scene-media media-ph ph-navy" data-image-slot="featured-event-fallback" aria-hidden="true"></div>',
+        "  " + photo("hero-scene-media media-ph ph-navy", "featured-event-fallback", "hero-weekend-mass", "hero",
+                     eager=not featured),
         '  <div class="hero-scene-shade"></div>',
         '  <div class="container hero-scene-copy">',
         '    <p class="overline">Join us this weekend</p>',
@@ -412,7 +445,7 @@ def render_upcoming(events, year):
         hidden = " hidden" if i >= UPCOMING_LIMIT else ""
         cards.append("\n".join([
             '<article class="ministry-card"%s%s>' % (end_attr(ev), hidden),
-            '  <div class="card-media media-ph" data-image-slot="event-%s" aria-hidden="true"></div>' % e(ev["id"]),
+            "  " + photo("card-media media-ph", "event-%s" % ev["id"], "event-%s" % ev["id"], "event"),
             "  <div>",
             "    <span>%s</span>" % e(ev["category"]),
             '    <h3><a class="card-link" href="%s">%s</a></h3>' % (e(event_href(ev)), e(ev["title"])),
@@ -444,7 +477,7 @@ def render_events_page(events, year, parish):
             action += '<p class="event-action">%s</p>' % ext_link(r["label"], r["url"], cls="link-arrow")
         return "\n".join([
             '<article class="event-item" id="%s"%s>' % (e(ev["id"]), end_attr(ev)),
-            '  <div class="event-item-media media-ph" data-image-slot="event-%s" aria-hidden="true"></div>' % e(ev["id"]),
+            "  " + photo("event-item-media media-ph", "event-%s" % ev["id"], "event-%s" % ev["id"], "event"),
             '  <div class="event-item-body">',
             '    <p class="eyebrow">%s</p>' % e(ev["category"]),
             "    <h3>%s</h3>" % e(ev["title"]),
@@ -518,8 +551,8 @@ def render_home_giving(giving):
         posters.append("\n".join([
             '<article class="event-poster" data-carousel-card%s style="--fan-x:%s;--fan-y:%s;--fan-z:%d;--fan-tilt:%s">'
             % (hidden, fallback["x"], fallback["y"], fallback["z"], fallback["tilt"]),
-            '  <div class="card-media media-ph %s" data-image-slot="%s" aria-hidden="true"></div>'
-            % ("ph-clay" if i % 2 == 0 else "ph-slate", e(opt["imageSlot"])),
+            "  " + photo("card-media media-ph %s" % ("ph-clay" if i % 2 == 0 else "ph-slate"),
+                         opt["imageSlot"], opt["imageSlot"], "giving"),
             '  <div class="poster-body">',
             '    <span class="poster-label">%s</span>' % e(opt["label"]),
             "    <h3>%s</h3>" % e(opt["name"]),
@@ -596,8 +629,8 @@ def render_support_options(giving, parish):
         out += [
             '      <article class="give-feature%s" id="%s" aria-labelledby="%s-title">'
             % (" is-primary" if opt.get("primary") else "", e(opt["id"]), e(opt["id"])),
-            '        <div class="give-feature-media media-ph %s" data-image-slot="%s" aria-hidden="true"></div>'
-            % ("ph-clay" if i % 2 == 0 else "ph-slate", e(opt["imageSlot"])),
+            "        " + photo("give-feature-media media-ph %s" % ("ph-clay" if i % 2 == 0 else "ph-slate"),
+                                 opt["imageSlot"], opt["imageSlot"], "giving"),
             '        <div class="give-feature-body">',
             '          <p class="eyebrow">%s</p>' % e(opt["label"]),
             '          <h3 id="%s-title">%s</h3>' % (e(opt["id"]), e(opt["name"])),
@@ -634,8 +667,8 @@ def render_support_options(giving, parish):
             for opt in g["items"]:
                 out += [
                     '        <li class="give-card" id="%s">' % e(opt["id"]),
-                    '          <div class="give-card-media media-ph %s" data-image-slot="%s" aria-hidden="true"></div>'
-                    % (GROUP_PH[n % len(GROUP_PH)], e(opt["imageSlot"])),
+                    "          " + photo("give-card-media media-ph %s" % GROUP_PH[n % len(GROUP_PH)],
+                                         opt["imageSlot"], opt["imageSlot"], "giving"),
                     '          <div class="give-card-body">',
                     '            <p class="eyebrow">%s</p>' % e(opt["label"]),
                     "            <h4>%s</h4>" % e(opt["name"]),

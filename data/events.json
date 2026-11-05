@@ -25,13 +25,13 @@
         }
       ],
       "location": "St. Matthias Church",
-      "description": "Each November the Church prays for all who have died. Come remember the people you love at either weekend Mass, or join Sunday’s Mass online.",
+      "description": "Bring a photo of someone you love for the ofrenda at the back of the church. At each Mass we read aloud the names of those who died this past year, light a candle for each, and send families home with a daffodil bulb to plant.",
       "action": {
         "label": "Watch the livestream",
         "url": "https://www.youtube.com/channel/UCRRy371aMVoldjaDoj8droA/live",
         "external": true
       },
-      "source": "Parish calendar (public Google Calendar feed), checked 2026-11-04"
+      "source": "Parish calendar (public Google Calendar feed), checked 2026-11-04; ritual details from Deacon Rich Foley, email 2026-11-05"
     },
     {
       "id": "caroling-cookies-cocoa",
@@ -41,14 +41,13 @@
       "status": "verified",
       "sessions": [
         {
-          "start": "2026-12-12T14:30:00-08:00",
-          "end": "2026-12-12T17:00:00-08:00",
-          "showEnd": true
+          "start": "2026-12-12T14:00:00-08:00",
+          "end": "2026-12-12T17:00:00-08:00"
         }
       ],
-      "location": "St. Matthias Parish",
-      "description": "Sing the carols you know by heart, then warm up with cookies and cocoa. Bring the kids, and anyone who likes to sing.",
-      "source": "Parish calendar (public Google Calendar feed), checked 2026-11-04"
+      "location": "Fr. Lacey Hall",
+      "description": "Dress warmly and bring a bell. Our young adults lead the carols, then everyone warms up with cookies and cocoa. Song sheets provided, because nobody knows the second verse. Families from the preschool are joining us too.",
+      "source": "Parish calendar (date); start time, place, and details from Melanie Dresbach and Deacon Rich Foley, emails 2026-10-22 and 2026-11-04"
     },
     {
       "id": "christmas-eve-masses",
@@ -69,6 +68,51 @@
       "location": "St. Matthias Church",
       "description": "Welcome the birth of Jesus Christ at an afternoon or evening Mass. Visiting family and friends are welcome too.",
       "source": "Parish calendar (public Google Calendar feed), checked 2026-11-04"
+    },
+    {
+      "id": "svdp-winter-drive",
+      "title": "St. Vincent de Paul Winter Drive",
+      "category": "Serve",
+      "featured": false,
+      "status": "verified",
+      "sessions": [
+        {
+          "start": "2026-11-14T17:00:00-08:00",
+          "end": "2026-11-14T18:00:00-08:00"
+        },
+        {
+          "start": "2026-11-15T09:45:00-08:00",
+          "end": "2026-11-15T10:45:00-08:00"
+        },
+        {
+          "start": "2026-11-21T17:00:00-08:00",
+          "end": "2026-11-21T18:00:00-08:00"
+        },
+        {
+          "start": "2026-11-22T09:45:00-08:00",
+          "end": "2026-11-22T10:45:00-08:00"
+        }
+      ],
+      "location": "Drop-off in Fr. Lacey Hall at weekend Masses",
+      "description": "Socks and coats top the list. Bring men’s and women’s winter wear to Mass either weekend: new thick socks and thermals, or gently used coats, sweaters, hats, scarves, mittens, blankets, and sleeping bags. St. Vincent de Paul gets it all to day laborers and unhoused neighbors. No children’s items, please.",
+      "source": "St. Vincent de Paul flyer (Joanne Thompson) and emails from Deacon Rich Foley and Bob Thompson, 2026-10-20 to 2026-11-05"
+    },
+    {
+      "id": "preschool-dine-out-night",
+      "title": "Little Turkeys Dine Out Night",
+      "category": "Preschool",
+      "featured": false,
+      "status": "verified",
+      "sessions": [
+        {
+          "start": "2026-11-17T16:00:00-08:00",
+          "end": "2026-11-17T20:00:00-08:00",
+          "showEnd": true
+        }
+      ],
+      "location": "McDonald’s, 185 Chestnut St., Redwood City",
+      "description": "Skip the dishes Tuesday night. Dinner at McDonald’s on Chestnut Street becomes a fundraiser for St. Matthias Preschool, and the proceeds buy new trikes and bikes for the playground.",
+      "source": "Preschool fundraiser flyer from Rosemary Juarez, email 2026-11-04"
     },
     {
       "id": "welcome-weekend",
