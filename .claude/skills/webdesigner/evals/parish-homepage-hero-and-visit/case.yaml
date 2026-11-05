@@ -1,0 +1,10 @@
+schema_version: "1.1"
+name: parish-homepage-hero-and-visit
+expected_outcome: |
+  A standalone index.html and styles.css. Semantic structure (header, nav, main, footer,
+  one h1), a hero with one headline and at most two CTAs with a legible scrim, Mass times
+  and the address visible immediately below the hero, a next-steps section and a footer
+  that repeats contact and times. Visible desktop nav with Give as a distinct button.
+  CSS uses custom-property tokens, fluid type with clamp(), intrinsic layout, visible
+  focus styles, 16px+ body on phones, and any motion is transform/opacity only with a
+  prefers-reduced-motion fallback. No lorem ipsum, no auto-rotating carousel.

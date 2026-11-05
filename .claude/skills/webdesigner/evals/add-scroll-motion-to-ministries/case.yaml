@@ -1,0 +1,13 @@
+schema_version: "1.1"
+name: add-scroll-motion-to-ministries
+expected_outcome: |
+  ministries.html and ministries.css are edited in place (plus a small vanilla JS file
+  or inline script). Cards reveal once on scroll with a short rise and fade (roughly 16
+  to 40px, 500 to 900ms, ease-out, staggered), the heading gets a load entrance gated on
+  fonts being ready, and card hover zooms the image slightly and nudges a link affordance,
+  gated on hover-capable devices. Content stays visible without JavaScript (no opacity:0
+  defaults outside an html.js scope) and all motion is disabled under
+  prefers-reduced-motion. Only transform and opacity are animated. Markup semantics
+  (list, headings, links, alt text) are preserved; no library is added.
+context:
+  scaffold_script: place-files.sh

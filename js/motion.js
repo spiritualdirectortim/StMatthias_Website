@@ -98,7 +98,7 @@
   var ministrySticky = ministrySection ? ministrySection.querySelector(".ministry-sticky") : null;
   var flightLayer = document.querySelector("[data-ministry-flight]");
   var flightImages = flightLayer ? Array.prototype.slice.call(flightLayer.querySelectorAll("[data-flight-image]")) : [];
-  var ministryTargets = ministrySection ? Array.prototype.slice.call(ministrySection.querySelectorAll(".ministry-card img")) : [];
+  var ministryTargets = ministrySection ? Array.prototype.slice.call(ministrySection.querySelectorAll(".ministry-card .card-media")) : [];
   var ticking = false;
 
   function progressFor(el, viewportHeight) {
@@ -195,7 +195,10 @@
   }
 
   function updateMinistryFlight(viewportWidth, viewportHeight) {
-    if (!flightLayer || !missionSection || !sundaySection || !ministrySection || !ministrySticky || flightImages.length !== ministryTargets.length) return;
+    if (!flightLayer || !missionSection || !sundaySection || !ministrySection || !ministrySticky || !ministryTargets.length) {
+      if (flightLayer) flightLayer.style.visibility = "hidden";
+      return;
+    }
 
     var scrollY = window.scrollY || window.pageYOffset;
     var missionRect = missionSection.getBoundingClientRect();
@@ -219,6 +222,12 @@
     });
 
     flightImages.forEach(function (image, index) {
+      // Fewer upcoming events than flight tiles: the extra tiles stay put on the mission stage.
+      if (index >= ministryTargets.length) {
+        image.style.display = "none";
+        return;
+      }
+      image.style.display = "";
       var start = starts[index];
       var waypoint = waypoints[index];
       var targetRect = ministryTargets[index].getBoundingClientRect();
@@ -256,22 +265,124 @@
   }
 
   function animateEvents(el, p) {
-    var settings = [
-      { delay: 0, x: 28, startRotation: -15, endRotation: -8 },
-      { delay: .05, x: 15, startRotation: -9, endRotation: -4 },
-      { delay: .10, x: 0, startRotation: 2, endRotation: 0 },
-      { delay: .15, x: -15, startRotation: 9, endRotation: 4 },
-      { delay: .20, x: -28, startRotation: 15, endRotation: 8 }
-    ];
-    el.querySelectorAll(".event-poster").forEach(function (poster, index) {
-      var s = settings[index];
-      if (!s) return;
+    if (el.querySelector("[data-support-carousel]")) return;
+    // The fan adapts to however many giving options are published (see scripts/build.py fan()).
+    var posters = el.querySelectorAll(".event-poster");
+    var count = posters.length;
+    Array.prototype.forEach.call(posters, function (poster, index) {
+      var offset = index - (count - 1) / 2;
+      var s = {
+        delay: index * .05,
+        x: -offset * 14,
+        startRotation: offset ? offset * 7.5 : 2,
+        endRotation: offset * 4
+      };
       var ep = ease((p - s.delay) / .58);
       var q = 1 - ep;
       var rotation = lerp(s.startRotation, s.endRotation, ep);
       poster.style.opacity = String(clamp01((p - s.delay) * 7));
       poster.style.transform = "translate3d(" + (s.x * q) + "vw," + (q * 62) + "vh,0) rotate(" + rotation + "deg) scale(" + (.78 + .22 * ep) + ")";
     });
+  }
+
+  function initGivingCarousel() {
+    var carousel = document.querySelector("[data-support-carousel]");
+    if (!carousel) return;
+    var cards = Array.prototype.slice.call(carousel.querySelectorAll("[data-carousel-card]"));
+    var previous = carousel.querySelector("[data-support-prev]");
+    var next = carousel.querySelector("[data-support-next]");
+    var dots = Array.prototype.slice.call(carousel.querySelectorAll("[data-support-dot]"));
+    var status = carousel.querySelector("[data-support-status]");
+    var current = 0;
+    var touchStart = null;
+
+    function shortestOffset(index) {
+      var offset = index - current;
+      var halfway = cards.length / 2;
+      if (offset > halfway) offset -= cards.length;
+      if (offset < -halfway) offset += cards.length;
+      return offset;
+    }
+
+    function renderGivingCarousel() {
+      cards.forEach(function (card, index) {
+        var offset = shortestOffset(index);
+        var distance = Math.abs(offset);
+        var visible = distance <= 2;
+        var selected = index === current;
+        var heading = card.querySelector("h3");
+        var title = heading ? heading.textContent.trim() : "Giving option";
+
+        card.hidden = false;
+        card.classList.toggle("is-carousel-visible", visible);
+        card.classList.toggle("is-carousel-current", selected);
+        card.setAttribute("aria-hidden", String(!selected));
+        card.setAttribute("aria-roledescription", "slide");
+        card.setAttribute("aria-label", title + ", " + (index + 1) + " of " + cards.length);
+        card.style.setProperty("--slot-x", (offset * 82) + "%");
+        card.style.setProperty("--slot-x-mobile", (offset * 72) + "%");
+        card.style.setProperty("--slot-y", (distance === 2 ? 2.4 : distance * .8) + "rem");
+        card.style.setProperty("--slot-tilt", (offset * 4) + "deg");
+        card.style.setProperty("--slot-scale", String(1 - distance * .055));
+        card.style.setProperty("--slot-z", String(10 - distance));
+        Array.prototype.forEach.call(card.querySelectorAll("a, button"), function (control) {
+          control.tabIndex = selected ? 0 : -1;
+        });
+      });
+
+      dots.forEach(function (dot, index) {
+        if (index === current) dot.setAttribute("aria-current", "true");
+        else dot.removeAttribute("aria-current");
+      });
+      var currentHeading = cards[current].querySelector("h3");
+      if (status) status.textContent = (currentHeading ? currentHeading.textContent.trim() : "Giving option") + ", " + (current + 1) + " of " + cards.length;
+    }
+
+    function goToGiving(index) {
+      current = (index + cards.length) % cards.length;
+      renderGivingCarousel();
+    }
+
+    function moveGiving(direction) {
+      goToGiving(current + direction);
+    }
+
+    if (previous) previous.addEventListener("click", function () { moveGiving(-1); });
+    if (next) next.addEventListener("click", function () { moveGiving(1); });
+    dots.forEach(function (dot) {
+      dot.addEventListener("click", function () { goToGiving(Number(dot.getAttribute("data-index"))); });
+    });
+    carousel.addEventListener("keydown", function (event) {
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        moveGiving(-1);
+      } else if (event.key === "ArrowRight") {
+        event.preventDefault();
+        moveGiving(1);
+      } else if (event.key === "Home") {
+        event.preventDefault();
+        goToGiving(0);
+      } else if (event.key === "End") {
+        event.preventDefault();
+        goToGiving(cards.length - 1);
+      }
+    });
+    carousel.addEventListener("touchstart", function (event) {
+      var touch = event.changedTouches[0];
+      touchStart = { x: touch.clientX, y: touch.clientY };
+    }, { passive: true });
+    carousel.addEventListener("touchend", function (event) {
+      if (!touchStart) return;
+      var touch = event.changedTouches[0];
+      var dx = touch.clientX - touchStart.x;
+      var dy = touch.clientY - touchStart.y;
+      touchStart = null;
+      if (Math.abs(dx) < 42 || Math.abs(dx) <= Math.abs(dy)) return;
+      moveGiving(dx < 0 ? 1 : -1);
+    }, { passive: true });
+
+    carousel.setAttribute("aria-roledescription", "carousel");
+    renderGivingCarousel();
   }
 
   function entryProgress(el, viewportHeight) {
@@ -311,7 +422,7 @@
       });
       if (flightLayer) flightLayer.style.visibility = "hidden";
       missionImages.forEach(function (image) { image.style.visibility = "visible"; });
-      document.querySelectorAll(".mission-image, .flight-image, .ministry-card img, .ministry-card > div, .event-poster").forEach(function (el) {
+      document.querySelectorAll(".mission-image, .flight-image, .ministry-card .card-media, .ministry-card > div, .event-poster").forEach(function (el) {
         el.style.opacity = "";
         el.style.transform = "";
       });
@@ -372,6 +483,7 @@
   if (desktop.addEventListener) desktop.addEventListener("change", requestUpdate);
   if (reduce.addEventListener) reduce.addEventListener("change", requestUpdate);
   document.addEventListener("visibilitychange", scheduleCarousel);
+  initGivingCarousel();
   update();
   scheduleCarousel();
   window.setTimeout(requestUpdate, 160);

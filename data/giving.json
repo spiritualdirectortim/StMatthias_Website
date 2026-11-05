@@ -1,0 +1,238 @@
+{
+  "_readme": [
+    "The one source for every giving option: the homepage 'Support St. Matthias' cards and the /support-us/ page. The Support Us menu lists every active option, linked to its Vanco page.",
+    "Only options with 'active': true are published. Regular Collection is always first.",
+    "Every 'url' must be a working HTTPS page on the parish's secure giving provider. Never add totals, goals, or deadlines unless the parish confirms them.",
+    "After editing, run: python3 scripts/build.py",
+    "Options marked 'featured' lead the Support Us page as large cards. Every other active option needs a 'group' that matches an id in 'groups'."
+  ],
+  "provider": {
+    "name": "Vanco",
+    "homeUrl": "https://secure.myvanco.com/L-ZAJ1/home"
+  },
+  "groups": [
+    {
+      "id": "parish",
+      "title": "Our parish home",
+      "intro": "Keep the church sound and share in the work of the wider Catholic community of the Bay Area."
+    },
+    {
+      "id": "worship",
+      "title": "Worship & formation",
+      "intro": "Offerings for Mass, the liturgy, and remembrance of loved ones, plus Faith Formation program fees."
+    },
+    {
+      "id": "neighbors",
+      "title": "Neighbors & the wider Church",
+      "intro": "Help neighbors in need, missionaries around the world, and the seminarians who will serve as our future priests."
+    }
+  ],
+  "options": [
+    {
+      "id": "regular-collection",
+      "name": "Regular Collection",
+      "label": "Primary way to give",
+      "active": true,
+      "primary": true,
+      "featured": true,
+      "kind": "regular",
+      "imageSlot": "support-regular-collection",
+      "summary": "The primary source of funds for St. Matthias, covering the everyday costs of parish worship, programs, and operations.",
+      "details": [
+        "Gifts to the Regular Collection are the primary source of funds for the parish. They meet St. Matthias’s operating and program expenses: keeping the church open for Mass and the sacraments, supporting faith formation for children, youth, and adults, and sustaining the ministries that welcome newcomers and care for neighbors.",
+        "You can give once or set up a recurring gift, and an email receipt is sent for each gift."
+      ],
+      "actionLabel": "Give to the Regular Collection",
+      "url": "https://secure.myvanco.com/L-ZAJ1/campaign/C-13RZH",
+      "source": "Vanco giving page, checked 2026-11-04"
+    },
+    {
+      "id": "roofing-fund",
+      "name": "St. Matthias Roofing Fund",
+      "label": "Active parish campaign",
+      "active": true,
+      "primary": false,
+      "featured": true,
+      "kind": "campaign",
+      "imageSlot": "support-roofing-fund",
+      "summary": "Helps prepare for replacing the church roof, one of the largest maintenance projects for any parish.",
+      "details": [
+        "One of the biggest maintenance projects for any church is replacing the roof that keeps the building sound. The Parish and Finance Councils of St. Matthias anticipate the need to replace the church’s composite roof in the next three to five years.",
+        "Gifts to the Roofing Fund are set aside for that project."
+      ],
+      "actionLabel": "Give to the Roofing Fund",
+      "url": "https://secure.myvanco.com/L-ZAJ1/campaign/C-16KPV",
+      "source": "Vanco giving page, checked 2026-11-04"
+    },
+    {
+      "id": "annual-appeal",
+      "name": "Archdiocesan Annual Appeal",
+      "label": "Annual appeal",
+      "active": true,
+      "primary": false,
+      "kind": "appeal",
+      "group": "parish",
+      "imageSlot": "support-annual-appeal",
+      "summary": "The AAA supports St. Matthias and the wider Catholic community of the Bay Area.",
+      "details": [
+        "The Archdiocesan Annual Appeal is an efficient way to give to the parish and to the wider Catholic community of the Bay Area."
+      ],
+      "actionLabel": "Give to the Annual Appeal",
+      "url": "https://secure.myvanco.com/L-ZAJ1/campaign/C-13RZN",
+      "source": "Vanco giving page, checked 2026-11-04"
+    },
+    {
+      "id": "building-fund",
+      "name": "Building Fund",
+      "label": "Parish facilities",
+      "active": true,
+      "primary": false,
+      "kind": "other",
+      "group": "parish",
+      "imageSlot": "support-building-fund",
+      "summary": "Quarterly collections for necessary improvements and maintenance of the parish facilities.",
+      "details": [
+        "Quarterly Building Fund collections are used for necessary improvements or maintenance of the parish facilities."
+      ],
+      "actionLabel": "Give to the Building Fund",
+      "url": "https://secure.myvanco.com/L-ZAJ1/campaign/C-13RZJ",
+      "source": "Vanco giving page, checked 2026-11-04"
+    },
+    {
+      "id": "st-vincent-de-paul",
+      "name": "St. Vincent de Paul",
+      "label": "Neighbors in need",
+      "active": true,
+      "primary": false,
+      "kind": "other",
+      "group": "neighbors",
+      "imageSlot": "support-st-vincent-de-paul",
+      "summary": "Second collections that continue the ministry of the parish St. Vincent de Paul conference.",
+      "details": [
+        "Second collections for St. Vincent de Paul help continue the ministry of the parish conference, which responds to neighbors’ emergency needs for food, shelter, clothing, and furniture."
+      ],
+      "actionLabel": "Give to St. Vincent de Paul",
+      "url": "https://secure.myvanco.com/L-ZAJ1/campaign/C-13RZP",
+      "source": "Vanco giving page, checked 2026-11-04"
+    },
+    {
+      "id": "faith-formation",
+      "name": "Faith Formation",
+      "label": "Program registration",
+      "active": true,
+      "primary": false,
+      "kind": "program",
+      "group": "worship",
+      "imageSlot": "support-faith-formation",
+      "summary": "Pay annual fees for GIFT, OCIA for Youth, Middle School Youth Ministry, First Communion, and Confirmation preparation.",
+      "details": [
+        "Complete registration for St. Matthias Faith Formation programs by paying annual program fees here."
+      ],
+      "actionLabel": "Pay Faith Formation Fees",
+      "url": "https://secure.myvanco.com/L-ZAJ1/campaign/C-13RZX",
+      "source": "Vanco giving page, checked 2026-11-04"
+    },
+    {
+      "id": "mass-stipend",
+      "name": "Mass Stipend",
+      "label": "Mass intentions",
+      "active": true,
+      "primary": false,
+      "kind": "worship",
+      "group": "worship",
+      "imageSlot": "support-mass-stipend",
+      "summary": "Offer the customary $10 stipend when a Mass is scheduled for a special intention or a deceased loved one.",
+      "details": [
+        "When a Mass is scheduled for a special intention or deceased loved one, a Mass stipend of $10 is offered."
+      ],
+      "actionLabel": "Give a Mass Stipend",
+      "url": "https://secure.myvanco.com/L-ZAJ1/campaign/C-13SX8",
+      "source": "Vanco giving page, checked 2026-11-04"
+    },
+    {
+      "id": "flower-offering",
+      "name": "Flower Offering",
+      "label": "Worship and liturgy",
+      "active": true,
+      "primary": false,
+      "kind": "worship",
+      "group": "worship",
+      "imageSlot": "support-flower-offering",
+      "summary": "Contribute to the flowers and seasonal environment that prepare our church for worship.",
+      "details": [
+        "Flower offerings support the liturgical environment at St. Matthias."
+      ],
+      "actionLabel": "Make a Flower Offering",
+      "url": "https://secure.myvanco.com/L-ZAJ1/campaign/C-15A7M",
+      "source": "Vanco giving page, checked 2026-11-04"
+    },
+    {
+      "id": "holy-days",
+      "name": "Holy Days — All Saints & All Souls",
+      "label": "Offering of remembrance",
+      "active": true,
+      "primary": false,
+      "kind": "worship",
+      "group": "worship",
+      "imageSlot": "support-holy-days",
+      "summary": "Remember the saints and all who have died through the parish’s All Saints and All Souls offering.",
+      "details": [
+        "All Saints’ Day honors all the saints of the Church, known and unknown. On All Souls’ Day we commemorate all those who have died."
+      ],
+      "actionLabel": "Make an Offering of Remembrance",
+      "url": "https://secure.myvanco.com/L-ZAJ1/campaign/C-13RZT",
+      "source": "Vanco giving page, checked 2026-11-04"
+    },
+    {
+      "id": "world-mission-sunday",
+      "name": "World Mission Sunday",
+      "label": "Mission collection",
+      "active": true,
+      "primary": false,
+      "kind": "appeal",
+      "group": "neighbors",
+      "imageSlot": "support-world-mission-sunday",
+      "summary": "Support missionary work that brings the Catholic faith to remote territories around the world.",
+      "details": [
+        "Through the World Mission Sunday collection, St. Matthias supports missionary work in remote territories around the world."
+      ],
+      "actionLabel": "Give to World Mission Sunday",
+      "url": "https://secure.myvanco.com/L-ZAJ1/campaign/C-13SSW",
+      "source": "Vanco giving page, checked 2026-11-04"
+    },
+    {
+      "id": "st-patricks-seminary",
+      "name": "St. Patrick’s Seminary",
+      "label": "Vocations",
+      "active": true,
+      "primary": false,
+      "kind": "appeal",
+      "group": "neighbors",
+      "imageSlot": "support-st-patricks-seminary",
+      "summary": "Support seminarians as they prepare for ordained ministry.",
+      "details": [
+        "Gifts to St. Patrick’s Seminary support seminarians in formation."
+      ],
+      "actionLabel": "Support St. Patrick’s Seminary",
+      "url": "https://secure.myvanco.com/L-ZAJ1/campaign/C-13SX9",
+      "source": "Vanco giving page, checked 2026-11-04"
+    },
+    {
+      "id": "human-development",
+      "name": "Campaign for Human Development",
+      "label": "Justice and charity",
+      "active": true,
+      "primary": false,
+      "kind": "appeal",
+      "group": "neighbors",
+      "imageSlot": "support-human-development",
+      "summary": "Support the U.S. Catholic bishops’ domestic anti-poverty and social justice program.",
+      "details": [
+        "The Catholic Campaign for Human Development is the domestic anti-poverty and social justice program of the U.S. Catholic bishops."
+      ],
+      "actionLabel": "Give to Human Development",
+      "url": "https://secure.myvanco.com/L-ZAJ1/campaign/C-13SSX",
+      "source": "Vanco giving page, checked 2026-11-04"
+    }
+  ]
+}

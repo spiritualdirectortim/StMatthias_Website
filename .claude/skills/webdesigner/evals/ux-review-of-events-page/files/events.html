@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head><title>Events</title>
+<style>
+body{font-family:Arial;font-size:13px;margin:0}
+.top{display:flex;justify-content:flex-end;padding:10px}
+.top div{margin-left:20px;color:#999;cursor:pointer}
+.slider{height:420px;background:#333;color:#aaa;text-align:center;line-height:420px}
+h1{font-size:18px;color:#bbb}
+h3{font-size:30px}
+.card{float:left;width:30%;margin:1%;opacity:0;transition:all 2s}
+.card.show{opacity:1}
+.card div.btn{background:#eee;color:#ccc;padding:4px;width:60px}
+a{color:#aaa;text-decoration:none}
+</style></head>
+<body>
+<div class="top"><div onclick="go('home')">Home</div><div onclick="go('events')">Events</div><div onclick="go('give')">Give</div><div onclick="menu()">☰</div></div>
+<div class="slider" id="s">Slide 1 of 5 (auto-rotates every 3 seconds)</div>
+<h3>Upcoming</h3>
+<h1>Events at Our Parish</h1>
+<div class="card"><img src="pancake.jpg"><h3>Pancake Breakfast</h3><p>Join us!</p><div class="btn" onclick="go('e1')">Learn More</div></div>
+<div class="card"><img src="bible.jpg"><h3>Bible Study</h3><p>Join us!</p><div class="btn" onclick="go('e2')">Learn More</div></div>
+<div class="card"><img src="youth.jpg"><h3>Youth Night</h3><p>Join us!</p><div class="btn" onclick="go('e3')">Learn More</div></div>
+<div class="card"><img src="bingo.jpg"><h3>Bingo</h3><p>Join us!</p><div class="btn" onclick="go('e4')">Learn More</div></div>
+<p style="clear:both">Questions? Call the office.</p>
+<script>
+setInterval(function(){var s=document.getElementById('s');s.textContent='Slide '+(Math.floor(Math.random()*5)+1)+' of 5';},3000);
+setTimeout(function(){document.querySelectorAll('.card').forEach(function(c){c.classList.add('show')})},2500);
+function go(x){location.href=x+'.html'}
+function menu(){alert('menu coming soon')}
+</script>
+</body></html>

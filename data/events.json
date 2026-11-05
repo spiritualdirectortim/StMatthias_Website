@@ -1,0 +1,166 @@
+{
+  "_readme": [
+    "The one source for every event on the site: the homepage hero (featured: true), the homepage 'Upcoming at St. Matthias' cards (everything else), and the /events/ page.",
+    "Only public events confirmed on the parish calendar or by the parish office belong here. No bulletins, internal meetings, or special-collection reminders.",
+    "Dated events use 'sessions' (ISO 8601 with the Pacific offset: -08:00 in winter, -07:00 in summer). An event disappears from the site after its last session ends.",
+    "Recurring events use 'recurrence' and 'time' instead of 'sessions'.",
+    "Set 'status' to 'development' only for placeholder events while designing; development events are never published (the build refuses them).",
+    "After editing, run: python3 scripts/build.py"
+  ],
+  "events": [
+    {
+      "id": "masses-of-remembrance",
+      "title": "Masses of Remembrance",
+      "category": "Worship",
+      "featured": true,
+      "status": "verified",
+      "sessions": [
+        {
+          "start": "2026-11-07T17:00:00-08:00",
+          "end": "2026-11-07T18:00:00-08:00"
+        },
+        {
+          "start": "2026-11-08T09:45:00-08:00",
+          "end": "2026-11-08T10:45:00-08:00"
+        }
+      ],
+      "location": "St. Matthias Church",
+      "description": "Each November the Church prays for all who have died. Come remember the people you love at either weekend Mass, or join Sunday’s Mass online.",
+      "action": {
+        "label": "Watch the livestream",
+        "url": "https://www.youtube.com/channel/UCRRy371aMVoldjaDoj8droA/live",
+        "external": true
+      },
+      "source": "Parish calendar (public Google Calendar feed), checked 2026-11-04"
+    },
+    {
+      "id": "caroling-cookies-cocoa",
+      "title": "Caroling, Cookies & Cocoa",
+      "category": "Parish life",
+      "featured": true,
+      "status": "verified",
+      "sessions": [
+        {
+          "start": "2026-12-12T14:30:00-08:00",
+          "end": "2026-12-12T17:00:00-08:00",
+          "showEnd": true
+        }
+      ],
+      "location": "St. Matthias Parish",
+      "description": "Sing the carols you know by heart, then warm up with cookies and cocoa. Bring the kids, and anyone who likes to sing.",
+      "source": "Parish calendar (public Google Calendar feed), checked 2026-11-04"
+    },
+    {
+      "id": "christmas-eve-masses",
+      "title": "Christmas Eve Masses",
+      "category": "Christmas",
+      "featured": true,
+      "status": "verified",
+      "sessions": [
+        {
+          "start": "2026-12-24T16:00:00-08:00",
+          "end": "2026-12-24T17:00:00-08:00"
+        },
+        {
+          "start": "2026-12-24T21:00:00-08:00",
+          "end": "2026-12-24T22:00:00-08:00"
+        }
+      ],
+      "location": "St. Matthias Church",
+      "description": "Welcome the birth of Jesus Christ at an afternoon or evening Mass. Visiting family and friends are welcome too.",
+      "source": "Parish calendar (public Google Calendar feed), checked 2026-11-04"
+    },
+    {
+      "id": "welcome-weekend",
+      "title": "Welcome Weekend",
+      "category": "Welcome",
+      "featured": false,
+      "status": "verified",
+      "recurrence": "Second full weekend of each month",
+      "time": "After both weekend Masses",
+      "location": "St. Matthias Church and Fr. Lacey Hall",
+      "description": "New to St. Matthias? Receive a special blessing at Mass, then stay: appetizers and a movie about a saint after Saturday Mass, donuts and coffee in Fr. Lacey Hall after Sunday Mass.",
+      "source": "Parish homepage, checked 2026-11-04"
+    },
+    {
+      "id": "rosary-for-peace",
+      "title": "Rosary for Peace",
+      "category": "Prayer",
+      "featured": false,
+      "status": "verified",
+      "recurrence": "Thursdays",
+      "time": "10:00 a.m.",
+      "location": "St. Matthias Church",
+      "description": "Pray the Rosary together in the church for peace in our world. Never prayed it before? Just follow along.",
+      "source": "Parish calendar and Prayer and Worship page, checked 2026-11-04"
+    },
+    {
+      "id": "thanksgiving-mass",
+      "title": "Thanksgiving Day Mass",
+      "category": "Worship",
+      "featured": false,
+      "status": "verified",
+      "sessions": [
+        {
+          "start": "2026-11-26T10:00:00-08:00",
+          "end": "2026-11-26T11:00:00-08:00"
+        }
+      ],
+      "location": "St. Matthias Church",
+      "description": "Begin Thanksgiving Day by giving thanks to God together at Mass.",
+      "source": "Parish calendar (public Google Calendar feed), checked 2026-11-04"
+    },
+    {
+      "id": "immaculate-conception",
+      "title": "Solemnity of the Immaculate Conception",
+      "category": "Holy day",
+      "featured": false,
+      "status": "verified",
+      "sessions": [
+        {
+          "start": "2026-12-08T19:00:00-08:00",
+          "end": "2026-12-08T20:00:00-08:00"
+        }
+      ],
+      "location": "St. Matthias Church",
+      "description": "An evening Mass honoring the Immaculate Conception of the Blessed Virgin Mary, a holy day of obligation.",
+      "source": "Parish calendar (public Google Calendar feed), checked 2026-11-04"
+    },
+    {
+      "id": "mary-mother-of-god",
+      "title": "Solemnity of Mary, Mother of God",
+      "category": "New Year’s Day",
+      "featured": false,
+      "status": "verified",
+      "sessions": [
+        {
+          "start": "2027-01-01T10:00:00-08:00",
+          "end": "2027-01-01T11:00:00-08:00"
+        }
+      ],
+      "location": "St. Matthias Church",
+      "description": "Begin the new year at Mass on the Solemnity of Mary, the Holy Mother of God.",
+      "source": "Parish calendar (public Google Calendar feed), checked 2026-11-04"
+    },
+    {
+      "id": "ash-wednesday",
+      "title": "Ash Wednesday Masses",
+      "category": "Lent",
+      "featured": false,
+      "status": "verified",
+      "sessions": [
+        {
+          "start": "2027-02-10T12:00:00-08:00",
+          "end": "2027-02-10T13:00:00-08:00"
+        },
+        {
+          "start": "2027-02-10T19:00:00-08:00",
+          "end": "2027-02-10T20:00:00-08:00"
+        }
+      ],
+      "location": "St. Matthias Church",
+      "description": "Begin the season of Lent with Mass and the blessing and distribution of ashes.",
+      "source": "Parish calendar (public Google Calendar feed), checked 2026-11-04"
+    }
+  ]
+}

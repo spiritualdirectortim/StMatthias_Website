@@ -1,0 +1,113 @@
+{
+  "_readme": "Shared parish facts and navigation. Edit, then run: python3 scripts/build.py. Only verified facts belong here; unconfirmed items go in docs/needs-parish-confirmation.md. A null value is never shown publicly.",
+  "parish": {
+    "name": "St. Matthias Catholic Church",
+    "shortName": "St. Matthias Parish",
+    "tagline": "Responding to the Call of Jesus",
+    "archdiocese": "Archdiocese of San Francisco",
+    "street": "1685 Cordilleras Road",
+    "city": "Redwood City",
+    "region": "CA",
+    "postalCode": "94062",
+    "phone": "(650) 366-9544",
+    "phoneHref": "tel:+16503669544",
+    "email": "info@stmatthiasparish.org",
+    "officeHours": null,
+    "massTimes": [
+      { "day": "Saturday", "time": "5:00 p.m." },
+      { "day": "Sunday", "time": "9:45 a.m." }
+    ],
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=1685+Cordilleras+Road,+Redwood+City,+CA+94062",
+    "livestreamUrl": "https://www.youtube.com/channel/UCRRy371aMVoldjaDoj8droA/live",
+    "registrationUrl": "https://stmatthias.flocknote.com/",
+    "preschoolUrl": "https://stmatthiaspreschool.org/"
+  },
+  "legal": {
+    "_readme": "Fill in only with values confirmed by the parish office or the Archdiocese. Leave null to hide.",
+    "legalName": null,
+    "ein": null,
+    "nonprofitStatus": null
+  },
+  "social": [
+    { "label": "Facebook", "url": "https://www.facebook.com/StMatthiasCatholicChurch" },
+    { "label": "YouTube", "url": "https://www.youtube.com/channel/UCRRy371aMVoldjaDoj8droA" },
+    { "label": "Youth ministry on Instagram", "url": "https://www.instagram.com/st_matthias_youth/" }
+  ],
+  "nav": [
+    {
+      "id": "about-us",
+      "label": "About Us",
+      "href": "/about-us/",
+      "children": [
+        { "label": "Our Parish & Mission", "href": "/about-us/#mission" },
+        { "label": "Staff & Leadership", "href": "/about-us/#staff-leadership" },
+        { "label": "New Here? FAQ", "href": "/about-us/#faq" },
+        { "label": "Contact & Nonprofit Information", "href": "/about-us/#contact" }
+      ]
+    },
+    {
+      "id": "sacraments",
+      "label": "Sacraments",
+      "href": "/sacraments/",
+      "children": [
+        { "label": "Baptism", "href": "/sacraments/#baptism" },
+        { "label": "Reconciliation", "href": "/sacraments/#reconciliation" },
+        { "label": "First Communion & Eucharist", "href": "/sacraments/#first-communion" },
+        { "label": "Confirmation", "href": "/sacraments/#confirmation" },
+        { "label": "Marriage", "href": "/sacraments/#marriage" },
+        { "label": "Anointing of the Sick", "href": "/sacraments/#anointing-of-the-sick" },
+        { "label": "Holy Orders & Vocations", "href": "/sacraments/#holy-orders" }
+      ]
+    },
+    {
+      "id": "faith-formation",
+      "label": "Faith Formation",
+      "href": "/faith-formation/",
+      "children": [
+        { "label": "Children & Families", "href": "/faith-formation/#children-families" },
+        { "label": "Youth", "href": "/faith-formation/#youth" },
+        { "label": "Adults", "href": "/faith-formation/#adults" },
+        { "label": "Becoming Catholic", "href": "/faith-formation/#becoming-catholic" }
+      ]
+    },
+    {
+      "id": "ministries",
+      "label": "Ministries",
+      "href": "/ministries/",
+      "children": [
+        { "label": "Worship at Mass", "href": "/ministries/#worship" },
+        { "label": "Serve Our Neighbors", "href": "/ministries/#service" },
+        { "label": "Welcome & Community", "href": "/ministries/#welcome" },
+        { "label": "Care & Support", "href": "/ministries/#care" },
+        { "label": "Help the Parish", "href": "/ministries/#parish-support" }
+      ]
+    },
+    {
+      "id": "events",
+      "label": "Events",
+      "href": "/events/"
+    },
+    {
+      "id": "support-us",
+      "label": "Support Us",
+      "href": "/support-us/",
+      "style": "support",
+      "childrenFrom": "giving"
+    },
+    {
+      "id": "preschool",
+      "label": "Preschool",
+      "href": "https://stmatthiaspreschool.org/",
+      "style": "external"
+    }
+  ],
+  "footer": {
+    "explore": ["about-us", "sacraments", "faith-formation", "ministries", "events"],
+    "takeAction": [
+      { "label": "Register with the Parish", "href": "https://stmatthias.flocknote.com/", "external": true },
+      { "label": "Support Us", "href": "/support-us/" },
+      { "label": "Preschool", "href": "https://stmatthiaspreschool.org/", "external": true },
+      { "label": "Privacy Policy", "href": "/privacy/" }
+    ]
+  }
+}
