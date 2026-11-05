@@ -137,13 +137,20 @@ Every non-logo image is a solid-color placeholder (`.media-ph`) with a `data-ima
 | `event-welcome-weekend`, `event-rosary-for-peace`, `event-thanksgiving-mass`, `event-immaculate-conception`, `event-mary-mother-of-god`, `event-ash-wednesday`, `event-masses-of-remembrance`, `event-caroling-cookies-cocoa`, `event-christmas-eve-masses` | Homepage Upcoming cards and the Events page | One image per event |
 | `support-regular-collection`, `support-roofing-fund` (and `support-annual-appeal`, `support-building-fund`, `support-st-vincent-de-paul` if activated) | Homepage giving posters and Support Us page | The church and parish life; the church roof or building exterior |
 | `support-hero` | Support Us page hero | Parishioners at the offertory or a welcoming church interior (4:5 on desktop, 16:9 on phones) |
+| `about-hero`, `sacraments-hero`, `faith-formation-hero`, `ministries-hero`, `events-hero` | Inner-page heroes, beside the headline (4:5 on desktop, 16:9 on phones) | The church in its Emerald Hills setting; a sacramental moment at the altar or font; families learning together; volunteers serving; a parish gathering |
+| `about-church-exterior` | About Us, Our Parish & Mission (4:3 desktop, 16:9 phones; same for every section photo below) | St. Matthias Church exterior |
+| `staff-fr-roy-remo`, `staff-fr-alner-nambatac`, `staff-deacon-rich-foley`, `staff-deacon-david-rolandelli`, `staff-carmen-perlas`, `staff-lisa-bamford`, `staff-melanie-dresbach`, `staff-rosemary-juarez` | About Us, Staff & Leadership (square, shown as a circle) | A head-and-shoulders portrait of each person |
+| `sacrament-baptism`, `sacrament-reconciliation`, `sacrament-eucharist`, `sacrament-confirmation`, `sacrament-marriage`, `sacrament-anointing`, `sacrament-holy-orders` | Sacraments page, one per section | The font, the confessional, First Communion, a Confirmation, a wedding, the oils or a visit to the sick, an ordination or a priest at the altar |
+| `formation-children-families`, `formation-youth`, `formation-adults`, `formation-becoming-catholic` | Faith Formation page, one per section | GIFT families, youth ministry, adult Bible study, an RCIA/Easter Vigil moment |
+| `ministry-worship`, `ministry-service`, `ministry-welcome`, `ministry-care`, `ministry-parish-support` | Ministries page, one per section | Music ministry or readers, St. Vincent de Paul volunteers, greeters, Communion to the homebound, parish volunteers at work |
+| `events-weekend-mass` | Events page, "Mass at St. Matthias" | The church during weekend Mass |
 
 Technical note for when photos arrive: add an optional `image` field to each event and giving option and render it in `scripts/build.py`. The homepage flight animation pairs mission tile *n* with Upcoming card *n*, so keep their images visually related, and export WebP files with explicit width and height for page speed.
 
 Other image questions:
 - These files are no longer used by any page and can be archived: `images/Congregation*.png`, `images/generated/*`, `images/church-interior.jpg`, `images/placeholders/*.svg`, and `videos/*`. `Congregation-v3.png` is an AI-generated scene with likenesses of real parishioners; it must not be presented as documentary photography.
 - Photo releases: anyone recognizable, especially children, needs consent on file.
-- Logo: approve `images/NewLogo_Aged.png` (shown in the header, footer, and favicon as the 256 px copy `images/logo-icon.png`).
+- Logo: approve `images/LogoFinal.png` (shown in the header, footer, and favicon as the 256 px copy `images/logo-icon.png`, and used as the homepage share image). `NewLogo*.png` are earlier drafts and can be archived.
 
 ---
 

@@ -980,6 +980,24 @@ html[data-direction="hub"] .overline::before { width: .5rem; height: .5rem; bord
 }
 .event-poster .card-media { position: absolute; inset: 0; }
 .event-poster > .poster-body { position: absolute; inset: auto 0 0; z-index: 1; padding: 1rem 1.05rem 1.15rem; }
+/* Giving cards: the photo is a framed rectangle at the top; the copy sits below it on navy. */
+.event-stack[data-support-carousel] .event-poster { display: flex; flex-direction: column; }
+.event-stack[data-support-carousel] .event-poster::after { content: none; }
+.event-stack[data-support-carousel] .event-poster .card-media {
+  position: relative; inset: auto; flex: 1 1 auto; min-height: 5.5rem;
+  margin: .65rem .65rem 0; border-radius: var(--r-lg);
+}
+.event-stack[data-support-carousel] .event-poster > .poster-body { position: relative; inset: auto; flex: none; }
+@media (min-width: 768px) and (max-height: 820px) {
+  .event-stack[data-support-carousel] .event-poster .card-media { min-height: 2.5rem; margin: .5rem .5rem 0; }
+  .event-stack[data-support-carousel] .event-poster > .poster-body { padding: .7rem .9rem .85rem; }
+  .event-stack[data-support-carousel] .event-poster h3 { font-size: clamp(1.1rem, 1.5vw, 1.35rem); }
+  .event-stack[data-support-carousel] .event-poster p { -webkit-line-clamp: 2; }
+  .event-stack[data-support-carousel] .poster-action { min-height: 2.25rem; margin-top: .55rem; padding: .4rem .85rem; }
+}
+@media (min-width: 768px) and (max-height: 640px) {
+  .event-stack[data-support-carousel] .event-poster p { display: none; }
+}
 .poster-label { display: block; color: #EAC7BC; font-size: var(--label-sm); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 .event-poster h3 { margin-top: .25rem; font-size: clamp(1.25rem, 1.8vw, var(--headline-md)); line-height: 1.12; }
 .event-poster p { margin-top: .35rem; color: rgba(250, 248, 245, .8); font-size: clamp(.78rem, .9vw, var(--body-sm)); line-height: 1.42; display: -webkit-box; overflow: hidden; -webkit-line-clamp: 3; -webkit-box-orient: vertical; }
@@ -1206,29 +1224,43 @@ html[data-direction="hub"] .overline::before { width: .5rem; height: .5rem; bord
 .support-card h2 { font-size: var(--headline-sm); line-height: 1.2; color: var(--stone-parchment); }
 .support-card p { margin-top: .4rem; font-size: var(--body-sm); line-height: 1.5; color: rgba(250, 248, 245, .82); }
 .support-card .btn { margin-top: .9rem; }
-@media (min-width: 1024px) {
+/* Clear the next arrow on tablets; the rule below widens this when the Support card is in the hero. */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .scroll-hero .hero-scene-copy { padding-right: 3rem; }
+}
+/* Tablet and up: the Support card stays inside the hero, bottom right, clear of the next arrow.
+   The event copy narrows to the card's left; the card only drops below the hero on phones
+   (and on phones turned sideways, where the hero is too short to hold it). */
+@media (min-width: 768px) and (min-height: 501px) {
+  .scroll-hero {
+    --support-w: clamp(13rem, 21vw, 19rem);
+    --support-right: max(var(--margin), calc((100% - var(--container)) / 2), calc(clamp(.8rem, 2vw, 2rem) + 4.5rem));
+  }
   .hero-support {
     position: absolute; padding: 0; background: none;
-    right: max(var(--margin), calc((100% - var(--container)) / 2), calc(clamp(.8rem, 2vw, 2rem) + 4.5rem));
+    right: var(--support-right);
     bottom: clamp(4.75rem, 9vh, 6rem);
-    width: clamp(15.5rem, 21vw, 19rem);
+    width: var(--support-w);
   }
   .support-card { grid-template-columns: 1fr; width: 100%; background: rgba(19, 30, 43, .46); }
   .support-card-media { aspect-ratio: 16 / 9; min-height: 0; }
   .support-card-body { padding: 1.1rem 1.25rem 1.3rem; }
   .support-card .btn { width: 100%; }
-  /* Keep each event's copy clear of the card. */
-  .scroll-hero .hero-scene-copy > * { max-width: min(52rem, calc(100% - 25rem)); }
+  /* Reserve the card's width plus a 2rem gap on the right of every slide's copy. */
+  .scroll-hero .hero-scene-copy {
+    padding-right: calc(var(--support-right) + var(--support-w) + 2rem - max(var(--margin), calc((100% - var(--container)) / 2)));
+  }
 }
-@media (min-width: 1024px) and (max-height: 680px) {
+@media (min-width: 768px) and (min-height: 501px) and (max-width: 1023px) {
+  .support-card-body { padding: .95rem 1rem 1.05rem; }
+  .support-card p { font-size: var(--body-sm); }
+}
+@media (min-width: 768px) and (min-height: 501px) and (max-height: 680px) {
   .support-card-media { display: none; }
 }
 /* Keep event copy clear of the side arrows until the container margin is wide enough. */
 @media (min-width: 768px) and (max-width: 1379px) {
   .scroll-hero .hero-scene-copy { padding-left: 3rem; }
-}
-@media (min-width: 768px) and (max-width: 1023px) {
-  .scroll-hero .hero-scene-copy { padding-right: 3rem; }
 }
 @media (max-width: 1279px) {
   .scroll-hero .hero-event-meta { row-gap: .15rem; }
@@ -1278,6 +1310,13 @@ html[data-direction="hub"] .overline::before { width: .5rem; height: .5rem; bord
 .page-hero h1 em { font-style: italic; font-weight: 400; color: #EAC7BC; }
 .page-hero .lede { max-width: 44rem; color: rgba(250, 248, 245, .84); }
 .page-hero .btn-row { margin-top: var(--s-lg); }
+/* Inner-page hero photo: same split as the Support Us hero (16:9 on phones, 4:5 beside the copy on desktop). */
+.page-hero-grid { display: grid; gap: var(--s-xl) calc(var(--gutter) * 2); align-items: end; }
+.page-hero-media { aspect-ratio: 16 / 9; border-radius: var(--r-xl); box-shadow: 0 24px 60px -24px rgba(0, 0, 0, .55); }
+@media (min-width: 1024px) {
+  .page-hero-grid { grid-template-columns: 7fr 5fr; }
+  .page-hero-media { aspect-ratio: 4 / 5; max-height: 30rem; }
+}
 .jump-links { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: var(--s-xl); }
 .jump-links a {
   display: inline-flex; align-items: center; min-height: 2.5rem; padding: .45rem .95rem;
@@ -1293,6 +1332,9 @@ html[data-direction="hub"] .overline::before { width: .5rem; height: .5rem; bord
 .page-grid > .section-intro .overline { margin-bottom: .75rem; }
 .page-grid > .section-intro h2 { font-size: var(--headline-xl); line-height: 1.15; color: var(--navy); }
 .page-grid > .section-intro p { margin-top: var(--s-md); color: var(--on-surface-variant); }
+/* One photo per inner-page section, under the section heading. */
+.section-intro .section-media { aspect-ratio: 16 / 9; margin-top: var(--s-lg); border-radius: var(--r-xl); }
+@media (min-width: 1024px) { .section-intro .section-media { aspect-ratio: 4 / 3; } }
 @media (min-width: 1024px) {
   .page-grid { grid-template-columns: 4fr 8fr; gap: var(--s-xl) calc(var(--gutter) * 2); align-items: start; }
   .page-grid > .section-intro { position: sticky; top: calc(var(--header-h) + 2rem); }
@@ -1344,6 +1386,10 @@ html[data-direction="hub"] .overline::before { width: .5rem; height: .5rem; bord
 .people { display: grid; gap: var(--gutter); margin-top: var(--s-lg); }
 @media (min-width: 640px) { .people { grid-template-columns: repeat(2, 1fr); } }
 .person { padding: 1.25rem 1.35rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: var(--card-radius); }
+/* Staff portrait beside each name. */
+.person:has(.person-photo) { display: grid; grid-template-columns: 4.5rem 1fr; column-gap: 1rem; align-items: start; }
+.person:has(.person-photo) > :not(.person-photo) { grid-column: 2; }
+.person-photo { grid-column: 1; grid-row: 1 / span 3; width: 4.5rem; aspect-ratio: 1; border-radius: 50%; }
 .person .person-name { margin: 0; font-family: var(--font-display); font-size: var(--headline-sm); font-weight: 600; letter-spacing: -.01em; text-transform: none; color: var(--navy); }
 .person .role { margin-top: .2rem; font-size: var(--label-sm); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--terracotta-deep); }
 .person p:not(.role) { margin-top: .6rem; font-size: var(--body-md); line-height: 1.6; color: var(--on-surface-variant); }
