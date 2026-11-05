@@ -39,7 +39,7 @@ People reflect the parish: mostly white, Asian and Filipino, with some Latino fa
 | `events-weekend-mass` | `events-weekend-mass-1200.webp` | |
 | Events page `event-*` and Support Us page `support-*` | reuse the homepage files above | |
 
-Still to make: `ministry-worship` (music rehearsal), `ministry-care` (Communion to the homebound) and `ministry-parish-support` (grounds work day), because Gemini's daily image limit was reached.
+The remaining ministry images—`ministry-worship` (music rehearsal), `ministry-care` (Communion to the homebound), and `ministry-parish-support` (grounds work day)—are now stored in `images/generated/` and used on the Ministries page. All three use the parish's chosen `*-final.webp` images.
 Not generated on purpose: the `staff-*` portraits. Those are real photos in `images/staff/`, taken from the current Staff Directory (Timothy Valderrama's is his own).
 
 Generated but not wired in: `about-mission.jpg` / `web/about-mission-1200.webp` (parishioners over coffee under oak trees after Mass), made for the About Us mission section. Unused: the parish chose its own image for that slot, `images/generated/about-church-exterior-welcome-final.webp` (families arriving at the church with the priests greeting them at the door).

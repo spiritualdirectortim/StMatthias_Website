@@ -78,7 +78,7 @@ Every non-logo image slot carries the `media-ph` class and a `data-image-slot="â
 
 The homepage is filled with AI-generated stand-in photos (2026-11-05) from `images/GeminiGeneratedImages/web/`; that folder's README maps each file to its slot. `scripts/build.py` fills the generated regions automatically through `photo()`. The hero uses `hero-<event id>-1200/2400.webp`, an Upcoming card uses `event-<event id>-960.webp`, a giving poster uses `<imageSlot>-800.webp`, and a slot with no matching file falls back to its placeholder. The Support Us card, mission tiles, and flight tiles are fixed `<img>` tags in `index.html`.
 
-The inner pages use the same set. `photo()` also fills the Events-page event rows and the Support Us giving cards. Page heroes (`<slot>-960.webp`, 4:5) and section photos (`<slot>-1200.webp`, 4:3) are fixed `<img>` tags in each page. Staff portraits are real headshots in `images/staff/staff-<name>.jpg` (256 px squares, shown as circles). Still placeholders: `staff-deacon-david-rolandelli`, `staff-carmen-perlas`, and `ministry-worship`, `ministry-care` and `ministry-parish-support`.
+The inner pages use the same set. `photo()` also fills the Events-page event rows and the Support Us giving cards. Page heroes (`<slot>-960.webp`, 4:5) and section photos (`<slot>-1200.webp`, 4:3) are fixed `<img>` tags in each page. Staff portraits are real headshots in `images/staff/staff-<name>.jpg` (256 px squares, shown as circles). The About Us mission photo and the Ministries worship, care and parish-support photos are in `images/generated/`. Still placeholders: `staff-deacon-david-rolandelli` and `staff-carmen-perlas`.
 
 ## 6. Preview locally
 
