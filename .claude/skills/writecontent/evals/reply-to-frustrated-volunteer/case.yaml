@@ -1,0 +1,10 @@
+schema_version: "1.1"
+name: reply-to-frustrated-volunteer
+expected_outcome: |
+  reply-to-carol.md is under 120 words, opens by naming Carol's situation or feeling in her
+  own terms (a label or accusation audit, e.g. "You wrote twice and heard nothing") before
+  any explanation, owns the missed emails plainly in active voice without excuses, does not
+  say "I'm sorry you feel that way", mirrors her key phrase (e.g. "the same three
+  families"), states one concrete thing the office will do, and closes with a calibrated
+  what/how question or a no-oriented question rather than a yes-pressure request. Calm
+  tone, no exclamation marks, signed with a name.

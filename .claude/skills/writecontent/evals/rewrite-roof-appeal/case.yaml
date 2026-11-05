@@ -1,0 +1,11 @@
+schema_version: "1.1"
+name: rewrite-roof-appeal
+expected_outcome: |
+  roof-appeal.md contains a short concrete headline (not "Support our campaign"), body copy
+  of roughly 120 to 250 words that opens on an image or the plain fact rather than the need,
+  admits the unglamorous nature of a roof, explains what the gift does, makes exactly one
+  ask with a small first step, and ends on an image or the ask rather than on logistics.
+  A button label that is verb-first and names the destination (e.g. "Give to the roof
+  fund"), never "Donate" alone or "Learn more". No invented numbers, goal amounts,
+  deadlines, quotes or testimonials; the only facts used are the ones given. No
+  exclamation marks, no "prayerfully consider", no "every gift makes a difference".

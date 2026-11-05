@@ -1,0 +1,10 @@
+schema_version: "1.1"
+name: caroling-event-blurb-and-email
+expected_outcome: |
+  caroling.md holds a card blurb of 15 to 40 words with one concrete, slightly surprising
+  detail (not "All are welcome!"), logistics kept to a metadata line, and an email with a
+  specific subject line under 50 characters and no exclamation mark, a short first
+  sentence, one ask, a reply-friendly close, and a person's name as sign-off. Neither
+  piece names a room, since none was confirmed, and neither invents numbers or quotes.
+  There is at most one moment of wit per piece, kind in tone, and no "Join us for a
+  wonderful evening" or "We are excited to announce".
